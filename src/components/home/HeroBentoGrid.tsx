@@ -4,20 +4,20 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { IslamicEmblem } from '@/components/common/IslamicEmblem';
-import { IMPACT_METRICS, PROJECTS } from '@/data/siteData';
-import { ShieldCheck, ArrowRight, HeartHandshake, Building, Droplet, Sparkles, QrCode, CheckCircle2 } from 'lucide-react';
-import { PledgeModal } from '@/components/common/PledgeModal';
 import { OrganicBlobs } from '@/components/common/OrganicBlobs';
 import { BrandWatermark } from '@/components/common/BrandWatermark';
+import { GlassButton } from '@/components/common/GlassButton';
+import { PledgeModal } from '@/components/common/PledgeModal';
+import { Sparkles, ShieldCheck, HeartHandshake, ArrowRight } from 'lucide-react';
 
 export const HeroBentoGrid: React.FC = () => {
   const [pledgeOpen, setPledgeOpen] = useState(false);
-  const landmarkProject = PROJECTS[0]; // Al-Barakah Tower
 
   return (
     <section className="relative overflow-hidden pt-28 sm:pt-36 pb-16 px-4 sm:px-6 max-w-6xl mx-auto">
       <OrganicBlobs />
-      <BrandWatermark position='top-right' opacity={0.03} size='xl' />
+      <BrandWatermark position="top-right" opacity={0.03} size="xl" />
+
       {/* Editorial Hero Statement */}
       <div className="relative z-10 text-center max-w-3xl mx-auto mb-12 sm:mb-14 space-y-4">
         {/* Shariah Pill Badge */}
@@ -38,171 +38,196 @@ export const HeroBentoGrid: React.FC = () => {
 
         {/* Subtitle */}
         <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-sans">
-          Transforming charitable capital into eternal, revenue-generating endowments. We preserve the principal corpus in perpetuity while directing yields to education, healthcare, and water infrastructure.
+          We preserve 100% of your charitable principal in revenue-generating commercial assets, dedicating pure annual yields to education, clean water, and healthcare across Nigeria.
         </p>
 
-        {/* Action Buttons */}
+        {/* Action Button with Hover Slide Animation */}
         <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-          <button
+          <GlassButton
             onClick={() => setPledgeOpen(true)}
-            className="glass-cta px-6 py-3 rounded-full text-white font-cairo font-bold text-sm flex items-center gap-2"
+            size="lg"
+            variant="royal"
+            indicator="arrow"
           >
-            <HeartHandshake size={16} className="text-brand-sky" />
-            <span>Establish a Waqf Endowment</span>
-            <ArrowRight size={16} />
-          </button>
-          <Link
-            href="/about"
-            className="px-5 py-3 rounded-full bg-white hover:bg-slate-50 text-brand-navy border border-brand-royal/15 font-cairo font-semibold text-sm transition-all"
-          >
-            Explore Governance Charter
-          </Link>
+            Establish Waqf Today
+          </GlassButton>
         </div>
       </div>
 
-      {/* Bento Grid Mosaic */}
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5">
-        {/* Card 1: Assets Under Management & Capital Preservation (Span 4) */}
-        <div className="md:col-span-4 bg-white rounded-3xl p-6 border border-brand-royal/10 shadow-clay flex flex-col justify-between relative overflow-hidden card-hover-lift">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-brand-sky/10 rounded-full blur-2xl -z-10" />
-          <div>
-            <div className="flex items-center justify-between mb-4">
-              <span className="px-2.5 py-1 rounded-full bg-brand-sky-soft text-brand-royal text-[11px] font-bold font-cairo">
-                Asset Stewardship
-              </span>
-              <span className="text-xs font-mono text-emerald-600 font-semibold bg-emerald-50 px-2 py-0.5 rounded-md">
-                100% Preserved
-              </span>
+      {/* 6-Card Creative Mosaic Grid (3x2 Layout) */}
+      <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        {/* Card 1: 85% Direct Yield Allocation (Dark Royal) */}
+        <div className="bg-gradient-to-br from-brand-royal via-brand-royal-dark to-brand-navy text-white rounded-3xl p-6 border border-white/10 shadow-clay flex flex-col justify-between relative overflow-hidden card-hover-lift group min-h-[220px]">
+          <div className="flex items-start justify-between">
+            <div className="space-y-1">
+              <div className="text-3xl sm:text-4xl font-bold font-cairo text-brand-gold">85%</div>
+              <p className="text-white/80 text-xs leading-relaxed max-w-[180px]">
+                of every annual yield goes directly to clean water, medical aid, and scholarships.
+              </p>
             </div>
-            <div className="text-3xl sm:text-4xl font-bold font-cairo text-brand-navy tracking-tight">
-              {IMPACT_METRICS[0].value}
+            {/* Botanical / Islamic Geometry Line Art */}
+            <div className="w-16 h-16 opacity-80 group-hover:scale-110 transition-transform text-brand-sky">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.75" className="w-full h-full">
+                <circle cx="32" cy="32" r="10" />
+                <path d="M32 12C32 20 22 24 22 32C22 40 32 44 32 52C32 44 42 40 42 32C42 24 32 20 32 12Z" />
+                <path d="M12 32C20 32 24 22 32 22C40 22 44 32 52 32C44 32 40 42 32 42C24 42 20 32 12 32Z" />
+              </svg>
             </div>
-            <p className="text-slate-600 text-xs mt-1 font-medium">
-              {IMPACT_METRICS[0].label}
-            </p>
           </div>
-
-          <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-            <span className="text-slate-500 font-cairo">Perpetual Model</span>
-            <span className="font-bold text-brand-royal font-cairo flex items-center gap-1">
-              <CheckCircle2 size={14} className="text-brand-sky" /> Zero Corpus Dilution
-            </span>
+          <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
+            <button
+              onClick={() => setPledgeOpen(true)}
+              className="text-[11px] font-cairo font-bold text-white/90 group-hover:text-white flex items-center gap-1.5"
+            >
+              <span>Pledge Yield Share</span>
+              <span className="w-4 h-4 rounded-full bg-emerald-400 text-brand-navy flex items-center justify-center text-[10px]">✓</span>
+            </button>
           </div>
         </div>
 
-        {/* Card 2: Landmark Project Spotlight (Span 5) */}
-        <div className="md:col-span-5 bg-white rounded-3xl overflow-hidden border border-brand-royal/10 shadow-clay flex flex-col group card-hover-lift">
-          <div className="relative h-44 sm:h-48 w-full overflow-hidden bg-slate-100">
-            <Image
-              src={landmarkProject.imageUrl}
-              alt={landmarkProject.title}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-transparent to-transparent" />
-            <div className="absolute top-3 left-3">
-              <span className="px-2.5 py-1 rounded-full bg-brand-gold text-brand-navy text-[10px] font-bold font-cairo uppercase shadow">
-                Featured Landmark Waqf
-              </span>
+        {/* Card 2: Join 1,200+ Donors (Cream Parchment) */}
+        <div className="bg-[#F6F4EB] rounded-3xl p-6 border border-amber-900/10 shadow-sm flex flex-col justify-between card-hover-lift group min-h-[220px]">
+          <div className="flex items-start justify-between gap-4">
+            <div className="space-y-1">
+              <h3 className="text-xl sm:text-2xl font-bold font-cairo text-brand-navy">
+                Join 1,200+ Donors
+              </h3>
+              <p className="text-slate-600 text-xs leading-relaxed">
+                Be part of an eternal community creating permanent, verifiable social dignity.
+              </p>
             </div>
-            <div className="absolute bottom-3 left-3 right-3 text-white">
-              <div className="text-xs font-cairo opacity-80">{landmarkProject.location}</div>
-              <div className="text-sm font-bold font-cairo truncate">{landmarkProject.title}</div>
+            {/* Illustrated community artwork */}
+            <div className="relative w-20 h-20 rounded-2xl overflow-hidden bg-white/60 border border-amber-900/10 flex-shrink-0">
+              <Image
+                src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&q=80"
+                alt="Community Donors"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+              />
             </div>
           </div>
-          <div className="p-4 flex items-center justify-between bg-white text-xs">
-            <div>
-              <span className="text-slate-400 block text-[10px]">Annual Yield Funding</span>
-              <span className="font-bold text-brand-royal font-cairo">{landmarkProject.annualYield}</span>
-            </div>
+          <div className="pt-4 mt-4 border-t border-amber-900/10 flex items-center justify-between">
             <Link
-              href="/endowments"
-              className="inline-flex items-center gap-1 font-cairo font-bold text-brand-sky hover:text-brand-royal transition-all"
+              href="/about"
+              className="text-[11px] font-cairo font-bold text-brand-navy hover:text-brand-royal flex items-center gap-1.5"
             >
-              <span>View Portfolio</span>
-              <ArrowRight size={14} />
+              <span>Join the Community</span>
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
             </Link>
           </div>
         </div>
 
-        {/* Card 3: Shariah Supervisory Seal (Span 3) */}
-        <div className="md:col-span-3 bg-gradient-to-br from-brand-royal via-brand-royal-dark to-brand-navy text-white rounded-3xl p-6 border border-white/15 shadow-clay flex flex-col justify-between relative overflow-hidden card-hover-lift">
-          <div className="flex items-center justify-between">
-            <IslamicEmblem size="sm" glow={false} />
-            <span className="text-[10px] font-mono text-brand-gold uppercase tracking-wider font-semibold">
-              Certified
-            </span>
-          </div>
-
-          <div className="my-4">
-            <div className="text-sm font-bold font-cairo text-white leading-snug">
-              AAOIFI Shariah Governance
+        {/* Card 3: 63+ Endowments (Dark Royal) */}
+        <div className="bg-gradient-to-br from-brand-royal via-brand-royal-dark to-brand-navy text-white rounded-3xl p-6 border border-white/10 shadow-clay flex flex-col justify-between relative overflow-hidden card-hover-lift group min-h-[220px]">
+          <div className="flex items-start justify-between">
+            <div className="space-y-1">
+              <div className="text-3xl sm:text-4xl font-bold font-cairo text-brand-sky">63+</div>
+              <p className="text-white/80 text-xs leading-relaxed max-w-[180px]">
+                Commercial properties, solar water grids, and dialysis centres active.
+              </p>
             </div>
-            <p className="text-white/70 text-[11px] mt-1 leading-relaxed">
-              Every endowment deed & distribution is vetted by our independent Shariah Jurists.
-            </p>
-          </div>
-
-          <Link
-            href="/about#shariah"
-            className="text-[11px] font-cairo font-bold text-brand-sky hover:text-white flex items-center gap-1 transition-all"
-          >
-            <span>Read Shariah Charter</span>
-            <ArrowRight size={12} />
-          </Link>
-        </div>
-
-        {/* Card 4: Direct Sadaqah Jariyah Fractional Share Card (Span 7) */}
-        <div className="md:col-span-7 bg-white rounded-3xl p-6 border border-brand-royal/10 shadow-clay flex flex-col sm:flex-row items-center justify-between gap-6 card-hover-lift">
-          <div className="space-y-2 text-left">
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-gold/15 text-brand-navy text-[11px] font-bold font-cairo">
-              <Sparkles size={12} className="text-brand-gold" />
-              <span>Fractional Waqf Sahm (Shares)</span>
+            {/* Geometric line art flowers/architecture */}
+            <div className="w-16 h-16 opacity-80 group-hover:scale-110 transition-transform text-brand-gold">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.75" className="w-full h-full">
+                <rect x="18" y="18" width="28" height="28" rx="6" />
+                <path d="M32 8L32 56M8 32L56 32" />
+                <circle cx="32" cy="32" r="6" />
+              </svg>
             </div>
-            <h4 className="text-lg font-bold font-cairo text-brand-navy">
-              Invest in Perpetual Sadaqah Jariyah
-            </h4>
-            <p className="text-slate-500 text-xs max-w-md">
-              Contribute a designated share starting from $50. Your principal is pooled into commercial & infrastructure endowments that yield social returns perpetually.
-            </p>
           </div>
-
-          <div className="flex sm:flex-col gap-2 w-full sm:w-auto">
-            <button
-              onClick={() => setPledgeOpen(true)}
-              className="w-full px-5 py-2.5 rounded-2xl bg-brand-sky hover:bg-brand-sky-light text-brand-navy font-cairo font-bold text-xs shadow-sky transition-all flex items-center justify-center gap-1.5 whitespace-nowrap"
+          <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
+            <Link
+              href="/endowments"
+              className="text-[11px] font-cairo font-bold text-white/90 group-hover:text-white flex items-center gap-1.5"
             >
-              <HeartHandshake size={14} />
-              <span>Pledge $50 Share</span>
-            </button>
-            <button
-              onClick={() => setPledgeOpen(true)}
-              className="w-full px-5 py-2.5 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-cairo font-semibold text-xs transition-all whitespace-nowrap"
-            >
-              Custom Amount
-            </button>
+              <span>Explore Portfolios</span>
+              <span className="w-4 h-4 rounded-full bg-emerald-400 text-brand-navy flex items-center justify-center text-[10px]">→</span>
+            </Link>
           </div>
         </div>
 
-        {/* Card 5: Beneficiaries & Geographic Reach (Span 5) */}
-        <div className="md:col-span-5 bg-gradient-to-br from-brand-mist to-white rounded-3xl p-6 border border-brand-royal/10 shadow-clay flex flex-col justify-between card-hover-lift">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-cairo font-bold text-brand-royal">
-              Active Community Impact
-            </span>
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-          </div>
-          <div>
-            <div className="text-2xl sm:text-3xl font-bold font-cairo text-brand-navy">
-              {IMPACT_METRICS[1].value}
+        {/* Card 4: ₦4.8B+ Assets (Cream Parchment) */}
+        <div className="bg-[#F6F4EB] rounded-3xl p-6 border border-amber-900/10 shadow-sm flex flex-col justify-between card-hover-lift group min-h-[220px]">
+          <div className="flex items-start justify-between gap-4">
+            <div className="space-y-1">
+              <div className="text-2xl sm:text-3xl font-bold font-cairo text-brand-navy">
+                ₦4.8B+
+              </div>
+              <p className="text-slate-600 text-xs leading-relaxed">
+                Assets Under Management preserved inviolable across Nigeria.
+              </p>
             </div>
-            <p className="text-slate-500 text-xs mt-0.5">
-              Individuals benefiting daily from solar boreholes, orphan stipends, and medical sponsorships.
-            </p>
+            <div className="relative w-20 h-20 rounded-2xl overflow-hidden bg-white/60 border border-amber-900/10 flex-shrink-0">
+              <Image
+                src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=400&q=80"
+                alt="Endowment Assets"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
           </div>
-          <div className="mt-4 pt-3 border-t border-slate-200/60 flex items-center justify-between text-[11px] text-slate-500">
-            <span>Operational Hubs</span>
-            <span className="font-semibold text-brand-navy font-cairo">Abuja · Kano · Kaduna · Kwara · Niger</span>
+          <div className="pt-4 mt-4 border-t border-amber-900/10 flex items-center justify-between text-[11px] font-cairo text-slate-500">
+            <span>100% Capital Preserved</span>
+            <span className="font-bold text-emerald-700 font-mono">Zero Dilution</span>
+          </div>
+        </div>
+
+        {/* Card 5: 24/7 Shariah Governance (Dark Royal) */}
+        <div className="bg-gradient-to-br from-brand-royal via-brand-royal-dark to-brand-navy text-white rounded-3xl p-6 border border-white/10 shadow-clay flex flex-col justify-between relative overflow-hidden card-hover-lift group min-h-[220px]">
+          <div className="flex items-start justify-between">
+            <div className="space-y-1">
+              <div className="text-2xl sm:text-3xl font-bold font-cairo text-white">24/7</div>
+              <p className="text-white/80 text-xs leading-relaxed max-w-[180px]">
+                AAOIFI-certified Shariah Board oversight and escrow monitoring.
+              </p>
+            </div>
+            {/* Scholar/Shield Icon line art */}
+            <div className="w-16 h-16 opacity-80 group-hover:scale-110 transition-transform text-brand-sky">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.75" className="w-full h-full">
+                <path d="M32 8L48 16V32C48 44 32 54 32 54C32 54 16 44 16 32V16L32 8Z" />
+                <path d="M26 32L30 36L38 28" />
+              </svg>
+            </div>
+          </div>
+          <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
+            <Link
+              href="/about#shariah"
+              className="text-[11px] font-cairo font-bold text-white/90 group-hover:text-white flex items-center gap-1.5"
+            >
+              <span>Read Shariah Charter</span>
+              <span className="w-4 h-4 rounded-full bg-emerald-400 text-brand-navy flex items-center justify-center text-[10px]">✓</span>
+            </Link>
+          </div>
+        </div>
+
+        {/* Card 6: Perpetual Sadaqah Jariyah (Cream Parchment) */}
+        <div className="bg-[#F6F4EB] rounded-3xl p-6 border border-amber-900/10 shadow-sm flex flex-col justify-between card-hover-lift group min-h-[220px]">
+          <div className="flex items-start justify-between gap-4">
+            <div className="space-y-1">
+              <h3 className="text-lg sm:text-xl font-bold font-cairo text-brand-navy leading-snug">
+                Perpetual Sadaqah
+              </h3>
+              <p className="text-slate-600 text-xs leading-relaxed">
+                Charity that outlives generations and continues blessing your scale forever.
+              </p>
+            </div>
+            <div className="relative w-20 h-20 rounded-2xl overflow-hidden bg-white/60 border border-amber-900/10 flex-shrink-0">
+              <Image
+                src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=400&q=80"
+                alt="Smiling Children Beneficiaries"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          </div>
+          <div className="pt-4 mt-4 border-t border-amber-900/10 flex items-center justify-between">
+            <button
+              onClick={() => setPledgeOpen(true)}
+              className="text-[11px] font-cairo font-bold text-brand-royal hover:text-brand-navy flex items-center gap-1.5"
+            >
+              <span>Dedicate Waqf Sahm</span>
+              <ArrowRight size={12} />
+            </button>
           </div>
         </div>
       </div>
@@ -211,4 +236,3 @@ export const HeroBentoGrid: React.FC = () => {
     </section>
   );
 };
-

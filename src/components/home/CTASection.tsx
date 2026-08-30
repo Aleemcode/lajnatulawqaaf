@@ -3,10 +3,10 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { IslamicEmblem } from '@/components/common/IslamicEmblem';
-import { HeartHandshake, ArrowRight, ShieldCheck, PhoneCall } from 'lucide-react';
+import { GlassButton } from '@/components/common/GlassButton';
+import { PhoneCall } from 'lucide-react';
 import { PledgeModal } from '@/components/common/PledgeModal';
 import { OrganicBlobs } from '@/components/common/OrganicBlobs';
-import { BrandWatermark } from '@/components/common/BrandWatermark';
 
 export const CTASection: React.FC = () => {
   const [pledgeOpen, setPledgeOpen] = useState(false);
@@ -14,7 +14,7 @@ export const CTASection: React.FC = () => {
   return (
     <section className="py-20 px-4 sm:px-6 max-w-6xl mx-auto">
       <div className="relative rounded-3xl sm:rounded-4xl bg-gradient-to-r from-brand-royal via-brand-royal-dark to-brand-navy text-white p-8 sm:p-14 overflow-hidden shadow-2xl border border-white/15">
-        <OrganicBlobs variant='dark' />
+        <OrganicBlobs variant="dark" />
         {/* Background glow and decorative circles */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-brand-sky/20 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-gold/15 rounded-full blur-3xl pointer-events-none" />
@@ -30,18 +30,19 @@ export const CTASection: React.FC = () => {
           </h2>
 
           <p className="text-white/80 text-sm sm:text-base leading-relaxed font-sans">
-            Whether dedicating a named commercial property, endowing a rural solar borehole network, or pledging a $50 fractional share—your reward continues for generations.
+            Whether dedicating a named commercial property, endowing a rural solar borehole network, or pledging a fractional share—your reward continues for generations.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-            <button
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+            <GlassButton
               onClick={() => setPledgeOpen(true)}
-              className="glass-cta-sky px-7 py-3.5 rounded-full text-brand-navy font-cairo font-bold text-sm flex items-center gap-2"
+              variant="sky"
+              size="lg"
+              indicator="arrow"
             >
-              <HeartHandshake size={18} />
-              <span>Establish Your Waqf Now</span>
-              <ArrowRight size={16} />
-            </button>
+              Establish Your Waqf Now
+            </GlassButton>
+
             <Link
               href="/contact"
               className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-cairo font-semibold text-sm transition-all flex items-center gap-2"

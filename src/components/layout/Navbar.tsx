@@ -65,10 +65,12 @@ export const Navbar: React.FC = () => {
             <div className="flex items-center gap-2.5">
               <button
                 onClick={() => setPledgeModalOpen(true)}
-                className="hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-brand-sky hover:bg-brand-sky-light text-brand-navy text-xs font-cairo font-bold shadow-sky transition-all hover:scale-105 active:scale-95"
+                className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs font-cairo font-bold transition-all hover:scale-105 active:scale-95 group"
               >
-                <HeartHandshake size={14} className="text-brand-navy" />
                 <span>Pledge Waqf</span>
+                <span className="w-4 h-4 rounded-full bg-emerald-400 text-brand-navy flex items-center justify-center text-[10px] font-bold group-hover:scale-110 transition-transform">
+                  +
+                </span>
               </button>
 
               {/* Mobile Menu Button */}
