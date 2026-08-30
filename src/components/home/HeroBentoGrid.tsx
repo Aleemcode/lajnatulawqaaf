@@ -7,15 +7,19 @@ import { IslamicEmblem } from '@/components/common/IslamicEmblem';
 import { IMPACT_METRICS, PROJECTS } from '@/data/siteData';
 import { ShieldCheck, ArrowRight, HeartHandshake, Building, Droplet, Sparkles, QrCode, CheckCircle2 } from 'lucide-react';
 import { PledgeModal } from '@/components/common/PledgeModal';
+import { OrganicBlobs } from '@/components/common/OrganicBlobs';
+import { BrandWatermark } from '@/components/common/BrandWatermark';
 
 export const HeroBentoGrid: React.FC = () => {
   const [pledgeOpen, setPledgeOpen] = useState(false);
   const landmarkProject = PROJECTS[0]; // Al-Barakah Tower
 
   return (
-    <section className="relative pt-28 sm:pt-36 pb-16 px-4 sm:px-6 max-w-6xl mx-auto">
+    <section className="relative overflow-hidden pt-28 sm:pt-36 pb-16 px-4 sm:px-6 max-w-6xl mx-auto">
+      <OrganicBlobs />
+      <BrandWatermark position='top-right' opacity={0.03} size='xl' />
       {/* Editorial Hero Statement */}
-      <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14 space-y-4">
+      <div className="relative z-10 text-center max-w-3xl mx-auto mb-12 sm:mb-14 space-y-4">
         {/* Shariah Pill Badge */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-royal/5 border border-brand-royal/15 text-brand-royal text-xs font-cairo font-bold tracking-wide shadow-sm">
           <IslamicEmblem size="sm" glow={false} />
@@ -41,7 +45,7 @@ export const HeroBentoGrid: React.FC = () => {
         <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
           <button
             onClick={() => setPledgeOpen(true)}
-            className="px-6 py-3 rounded-full bg-brand-royal hover:bg-brand-royal-light text-white font-cairo font-bold text-sm shadow-clay hover:shadow-clay-hover transition-all flex items-center gap-2"
+            className="glass-cta px-6 py-3 rounded-full text-white font-cairo font-bold text-sm flex items-center gap-2"
           >
             <HeartHandshake size={16} className="text-brand-sky" />
             <span>Establish a Waqf Endowment</span>
@@ -57,7 +61,7 @@ export const HeroBentoGrid: React.FC = () => {
       </div>
 
       {/* Bento Grid Mosaic */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5">
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5">
         {/* Card 1: Assets Under Management & Capital Preservation (Span 4) */}
         <div className="md:col-span-4 bg-white rounded-3xl p-6 border border-brand-royal/10 shadow-clay flex flex-col justify-between relative overflow-hidden card-hover-lift">
           <div className="absolute top-0 right-0 w-32 h-32 bg-brand-sky/10 rounded-full blur-2xl -z-10" />
@@ -207,3 +211,4 @@ export const HeroBentoGrid: React.FC = () => {
     </section>
   );
 };
+

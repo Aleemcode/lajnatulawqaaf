@@ -3,11 +3,14 @@
 import React from 'react';
 import Link from 'next/link';
 import { ShieldCheck, FileText, CheckCircle2, TrendingUp, Lock, RefreshCw, ArrowRight } from 'lucide-react';
+import { OrganicBlobs } from '@/components/common/OrganicBlobs';
+import { BrandWatermark } from '@/components/common/BrandWatermark';
 
 export const TransparencySnapshot: React.FC = () => {
   return (
-    <section className="py-20 bg-white border-t border-brand-royal/10 relative">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section className="py-20 bg-white border-t border-brand-royal/10 relative overflow-hidden">
+      <OrganicBlobs />
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column: Model Explanation */}
           <div className="lg:col-span-6 space-y-5">
@@ -65,7 +68,7 @@ export const TransparencySnapshot: React.FC = () => {
           {/* Right Column: Visual Distribution Flow Diagram */}
           <div className="lg:col-span-6 bg-brand-mist rounded-3xl p-6 sm:p-8 border border-brand-royal/10 shadow-clay relative">
             <h3 className="font-cairo font-bold text-base text-brand-navy mb-6 text-center">
-              Capital Preservation & Yield Allocation Engine
+              How Your Endowment Creates Perpetual Good
             </h3>
 
             <div className="space-y-4">

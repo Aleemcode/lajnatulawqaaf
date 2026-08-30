@@ -3,13 +3,16 @@
 import React, { useState } from 'react';
 import { FAQS } from '@/data/siteData';
 import { ChevronDown, HelpCircle } from 'lucide-react';
+import { OrganicBlobs } from '@/components/common/OrganicBlobs';
+import { BrandWatermark } from '@/components/common/BrandWatermark';
 
 export const FAQSection: React.FC = () => {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section className="py-20 bg-brand-mist border-t border-brand-royal/10">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+    <section className="py-20 bg-brand-mist relative overflow-hidden">
+      <OrganicBlobs />
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 space-y-2">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-sky-soft text-brand-royal text-xs font-cairo font-bold">
             <HelpCircle size={14} />

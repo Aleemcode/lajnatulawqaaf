@@ -4,6 +4,8 @@ import React from 'react';
 import { IslamicEmblem } from '@/components/common/IslamicEmblem';
 import { SITE_CONFIG } from '@/data/siteData';
 import { ShieldCheck, FileText, Download, Lock, CheckCircle2, Scale, RefreshCw, ArrowRight } from 'lucide-react';
+import { OrganicBlobs } from '@/components/common/OrganicBlobs';
+import { BrandWatermark } from '@/components/common/BrandWatermark';
 
 export default function TransparencyPage() {
   const reports = [
@@ -40,17 +42,21 @@ export default function TransparencyPage() {
   return (
     <div className="pt-28 sm:pt-36 pb-20">
       {/* Header */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-16 text-center">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-royal/5 border border-brand-royal/15 text-brand-royal text-xs font-cairo font-bold mb-4">
-          <ShieldCheck size={14} />
-          <span>Radical Transparency & Shariah Assurance</span>
+      <section className="relative overflow-hidden max-w-6xl mx-auto px-4 sm:px-6 mb-16 text-center py-8 rounded-3xl">
+        <OrganicBlobs />
+        <BrandWatermark position='top-right' opacity={0.03} size='lg' />
+        <div className="relative z-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-royal/5 border border-brand-royal/15 text-brand-royal text-xs font-cairo font-bold mb-4">
+            <ShieldCheck size={14} />
+            <span>Integrity & Shariah Assurance</span>
+          </div>
+          <h1 className="text-3xl sm:text-5xl font-bold font-cairo text-brand-navy max-w-3xl mx-auto leading-tight">
+            Committed to Protecting Your Endowments
+          </h1>
+          <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto mt-4 leading-relaxed">
+            The Islamic law of Waqf places a sacred trust (*Amanah*) on our shoulders. We share our financial records, Shariah certifications, and community impact openly every year.
+          </p>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-bold font-cairo text-brand-navy max-w-3xl mx-auto leading-tight">
-          Uncompromising Accountability for Eternal Endowments
-        </h1>
-        <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto mt-4 leading-relaxed">
-          The Islamic law of Waqf places the highest fiduciary burden on trustees (*Nuzar*). We publish full external financial audits, Shariah compliance certifications, and impact metrics annually.
-        </p>
       </section>
 
       {/* 100% Principal Protection Core Policy */}

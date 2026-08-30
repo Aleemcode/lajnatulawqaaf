@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { PROJECTS, Project, SITE_CONFIG } from '@/data/siteData';
 import { MapPin, ShieldCheck, HeartHandshake, CheckCircle2, Building, Droplets, GraduationCap, HeartPulse, Search } from 'lucide-react';
 import { PledgeModal } from '@/components/common/PledgeModal';
+import { OrganicBlobs } from '@/components/common/OrganicBlobs';
+import { BrandWatermark } from '@/components/common/BrandWatermark';
 
 export default function EndowmentsPage() {
   const [selectedCat, setSelectedCat] = useState<string>('all');
@@ -31,17 +33,21 @@ export default function EndowmentsPage() {
   return (
     <div className="pt-28 sm:pt-36 pb-20">
       {/* Header */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-12 text-center">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-sky-soft text-brand-royal text-xs font-cairo font-bold mb-4">
-          <Building size={14} />
-          <span>Active Endowments & Case Studies</span>
+      <section className="relative overflow-hidden max-w-6xl mx-auto px-4 sm:px-6 mb-12 text-center py-8 rounded-3xl">
+        <OrganicBlobs />
+        <BrandWatermark position='top-right' opacity={0.03} size='lg' />
+        <div className="relative z-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-sky-soft text-brand-royal text-xs font-cairo font-bold mb-4">
+            <Building size={14} />
+            <span>Active Endowments & Case Studies</span>
+          </div>
+          <h1 className="text-3xl sm:text-5xl font-bold font-cairo text-brand-navy max-w-3xl mx-auto leading-tight">
+            Perpetual Assets Yielding Continuous Blessings
+          </h1>
+          <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto mt-4 leading-relaxed">
+            Every project below is an established Islamic Waqf (*Waqf Sahih*). The capital corpus is held inviolable, producing perpetual yields dedicated to community upliftment.
+          </p>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-bold font-cairo text-brand-navy max-w-3xl mx-auto leading-tight">
-          Perpetual Assets Yielding Continuous Blessings
-        </h1>
-        <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto mt-4 leading-relaxed">
-          Every project below is an established Islamic Waqf (*Waqf Sahih*). The capital corpus is held inviolable, producing perpetual yields dedicated to community upliftment.
-        </p>
 
         {/* Search & Filter Bar */}
         <div className="mt-10 max-w-3xl mx-auto flex flex-col sm:flex-row items-center gap-3">

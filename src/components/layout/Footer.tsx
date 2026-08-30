@@ -5,10 +5,12 @@ import Link from 'next/link';
 import { Logo } from '@/components/common/Logo';
 import { SITE_CONFIG } from '@/data/siteData';
 import { ShieldCheck, Mail, MapPin, Phone, ArrowUpRight, HeartHandshake } from 'lucide-react';
+import { OrganicBlobs } from '@/components/common/OrganicBlobs';
 
 export const Footer: React.FC = () => {
   return (
     <footer className="bg-brand-royal-dark text-white pt-16 pb-12 border-t border-white/10 relative overflow-hidden">
+      <OrganicBlobs variant="dark" />
       {/* Background Architectural Accent Lines */}
       <div className="absolute inset-0 pointer-events-none opacity-5">
         <div className="w-full h-full bg-[radial-gradient(#03BDE3_1px,transparent_1px)] [background-size:24px_24px]" />
@@ -134,6 +136,15 @@ export const Footer: React.FC = () => {
               </button>
             </form>
           </div>
+        </div>
+        
+        <div className="flex flex-col sm:flex-row gap-3 mt-8 pt-8 border-t border-white/10">
+          {['X / Twitter', 'Instagram', 'YouTube'].map(platform => (
+            <a key={platform} href="#" className="flex-1 flex items-center justify-between px-5 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all group">
+              <span className="text-sm text-white/80 font-cairo">{platform}</span>
+              <span className="w-7 h-7 rounded-full bg-brand-sky/20 text-brand-sky flex items-center justify-center group-hover:bg-brand-sky group-hover:text-white transition-all">→</span>
+            </a>
+          ))}
         </div>
 
         {/* Bottom Bar */}

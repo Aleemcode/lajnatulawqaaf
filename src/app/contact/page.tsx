@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { SITE_CONFIG, WAQF_PILLARS } from '@/data/siteData';
 import { IslamicEmblem } from '@/components/common/IslamicEmblem';
 import { MapPin, Phone, Mail, Clock, Send, ShieldCheck, CheckCircle2, Building, HeartHandshake } from 'lucide-react';
+import { OrganicBlobs } from '@/components/common/OrganicBlobs';
+import { BrandWatermark } from '@/components/common/BrandWatermark';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -24,17 +26,21 @@ export default function ContactPage() {
   return (
     <div className="pt-28 sm:pt-36 pb-20">
       {/* Header */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-16 text-center">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-royal/5 border border-brand-royal/15 text-brand-royal text-xs font-cairo font-bold mb-4">
-          <Mail size={14} />
-          <span>Fiduciary Inquiries & Asset Dedications</span>
+      <section className="relative overflow-hidden max-w-6xl mx-auto px-4 sm:px-6 mb-16 text-center py-8 rounded-3xl">
+        <OrganicBlobs />
+        <BrandWatermark position='top-right' opacity={0.03} size='lg' />
+        <div className="relative z-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-royal/5 border border-brand-royal/15 text-brand-royal text-xs font-cairo font-bold mb-4">
+            <Mail size={14} />
+            <span>Fiduciary Inquiries & Asset Dedications</span>
+          </div>
+          <h1 className="text-3xl sm:text-5xl font-bold font-cairo text-brand-navy max-w-3xl mx-auto leading-tight">
+            Connect with Our Waqf Advisory Committee
+          </h1>
+          <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto mt-4 leading-relaxed">
+            Whether establishing a designated family endowment (*Waqf Dhurri*), dedicating real property, or contributing fractional Sadaqah Jariyah shares, our advisors are here to assist.
+          </p>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-bold font-cairo text-brand-navy max-w-3xl mx-auto leading-tight">
-          Connect with Our Waqf Advisory Committee
-        </h1>
-        <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto mt-4 leading-relaxed">
-          Whether establishing a designated family endowment (*Waqf Dhurri*), dedicating real property, or contributing fractional Sadaqah Jariyah shares, our advisors are here to assist.
-        </p>
       </section>
 
       {/* Main Grid: Form + Office Coordinates */}

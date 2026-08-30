@@ -4,6 +4,8 @@ import React from 'react';
 import Link from 'next/link';
 import { WAQF_PILLARS } from '@/data/siteData';
 import { Building2, GraduationCap, Droplets, HeartPulse, ArrowRight } from 'lucide-react';
+import { OrganicBlobs } from '@/components/common/OrganicBlobs';
+import { BrandWatermark } from '@/components/common/BrandWatermark';
 
 export const PillarsSection: React.FC = () => {
   const getIcon = (iconName: string) => {
@@ -17,8 +19,9 @@ export const PillarsSection: React.FC = () => {
   };
 
   return (
-    <section className="py-20 bg-white border-y border-brand-royal/10 relative">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section className="py-20 bg-white relative overflow-hidden">
+      <OrganicBlobs />
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div className="space-y-2">
