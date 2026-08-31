@@ -15,7 +15,7 @@ export const ImpactCounterBar: React.FC = () => {
         <div className="lg:col-span-4 p-8 sm:p-10 border-b lg:border-b-0 lg:border-r border-brand-royal/10 flex flex-col justify-between space-y-6">
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-mist border border-slate-200/80 text-brand-royal text-xs font-cairo font-bold mb-4 shadow-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-sky animate-pulse" />
               <span>Impact Reach</span>
             </div>
             {/* Avatar Stack + 10k+ Count */}
@@ -53,7 +53,7 @@ export const ImpactCounterBar: React.FC = () => {
               onClick={() => setPledgeOpen(true)}
               variant="royal"
               size="md"
-              indicator="arrow"
+              direction="right"
             >
               Pledge a Waqf Share
             </GlassButton>

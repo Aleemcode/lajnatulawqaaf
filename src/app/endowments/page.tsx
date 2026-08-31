@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { GlassButton } from '@/components/common/GlassButton';
 import { OrganicBlobs } from '@/components/common/OrganicBlobs';
-import { BrandWatermark } from '@/components/common/BrandWatermark';
 import { PledgeModal } from '@/components/common/PledgeModal';
 import { PROJECTS, Project, WAQF_PILLARS } from '@/data/siteData';
 import { 
@@ -53,7 +52,6 @@ export default function EndowmentsPage() {
   return (
     <main className="relative min-h-screen bg-brand-mist font-inter text-brand-navy overflow-hidden pt-24 pb-24">
       <OrganicBlobs />
-      <BrandWatermark />
       
       {/* Container with grid lines */}
       <div className="max-w-6xl mx-auto px-4 md:px-8 relative z-10">

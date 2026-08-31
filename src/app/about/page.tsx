@@ -2,10 +2,8 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { GlassButton } from '@/components/common/GlassButton';
 import { OrganicBlobs } from '@/components/common/OrganicBlobs';
-import { BrandWatermark } from '@/components/common/BrandWatermark';
 import { IslamicEmblem } from '@/components/common/IslamicEmblem';
 import { PledgeModal } from '@/components/common/PledgeModal';
 import { TRUSTEES, SHARIAH_SCHOLARS, SITE_CONFIG } from '@/data/siteData';
@@ -69,7 +67,6 @@ export default function AboutPage() {
   return (
     <div className="relative min-h-screen bg-white text-brand-navy selection:bg-brand-gold/30 selection:text-brand-navy">
       <OrganicBlobs />
-      <BrandWatermark />
 
       <main className="relative z-10 pt-32 pb-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">

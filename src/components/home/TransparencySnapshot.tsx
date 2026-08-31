@@ -4,7 +4,6 @@ import React from 'react';
 import Link from 'next/link';
 import { ShieldCheck, FileText, CheckCircle2, TrendingUp, Lock, RefreshCw, ArrowRight } from 'lucide-react';
 import { OrganicBlobs } from '@/components/common/OrganicBlobs';
-import { BrandWatermark } from '@/components/common/BrandWatermark';
 
 export const TransparencySnapshot: React.FC = () => {
   return (

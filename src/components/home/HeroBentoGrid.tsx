@@ -5,10 +5,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { IslamicEmblem } from '@/components/common/IslamicEmblem';
 import { OrganicBlobs } from '@/components/common/OrganicBlobs';
-import { BrandWatermark } from '@/components/common/BrandWatermark';
 import { GlassButton } from '@/components/common/GlassButton';
 import { PledgeModal } from '@/components/common/PledgeModal';
-import { Sparkles, ShieldCheck, HeartHandshake, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export const HeroBentoGrid: React.FC = () => {
   const [pledgeOpen, setPledgeOpen] = useState(false);
@@ -16,7 +15,6 @@ export const HeroBentoGrid: React.FC = () => {
   return (
     <section className="relative overflow-hidden pt-28 sm:pt-36 pb-16 px-4 sm:px-6 max-w-6xl mx-auto">
       <OrganicBlobs />
-      <BrandWatermark position="top-right" opacity={0.03} size="xl" />
 
       {/* Editorial Hero Statement */}
       <div className="relative z-10 text-center max-w-3xl mx-auto mb-12 sm:mb-14 space-y-4">
@@ -47,7 +45,7 @@ export const HeroBentoGrid: React.FC = () => {
             onClick={() => setPledgeOpen(true)}
             size="lg"
             variant="royal"
-            indicator="arrow"
+            direction="right"
           >
             Establish Waqf Today
           </GlassButton>
@@ -80,7 +78,7 @@ export const HeroBentoGrid: React.FC = () => {
               className="text-[11px] font-cairo font-bold text-white/90 group-hover:text-white flex items-center gap-1.5"
             >
               <span>Pledge Yield Share</span>
-              <span className="w-4 h-4 rounded-full bg-emerald-400 text-brand-navy flex items-center justify-center text-[10px]">✓</span>
+              <span className="w-4 h-4 rounded-full bg-brand-sky text-brand-navy flex items-center justify-center text-[10px] font-bold">✓</span>
             </button>
           </div>
         </div>
@@ -112,7 +110,7 @@ export const HeroBentoGrid: React.FC = () => {
               className="text-[11px] font-cairo font-bold text-brand-navy hover:text-brand-royal flex items-center gap-1.5"
             >
               <span>Join the Community</span>
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="w-2.5 h-2.5 rounded-full bg-brand-sky animate-pulse" />
             </Link>
           </div>
         </div>
@@ -141,7 +139,7 @@ export const HeroBentoGrid: React.FC = () => {
               className="text-[11px] font-cairo font-bold text-white/90 group-hover:text-white flex items-center gap-1.5"
             >
               <span>Explore Portfolios</span>
-              <span className="w-4 h-4 rounded-full bg-emerald-400 text-brand-navy flex items-center justify-center text-[10px]">→</span>
+              <span className="w-4 h-4 rounded-full bg-brand-sky text-brand-navy flex items-center justify-center text-[10px] font-bold">→</span>
             </Link>
           </div>
         </div>
@@ -168,7 +166,7 @@ export const HeroBentoGrid: React.FC = () => {
           </div>
           <div className="pt-4 mt-4 border-t border-amber-900/10 flex items-center justify-between text-[11px] font-cairo text-slate-500">
             <span>100% Capital Preserved</span>
-            <span className="font-bold text-emerald-700 font-mono">Zero Dilution</span>
+            <span className="font-bold text-brand-royal font-mono">Zero Dilution</span>
           </div>
         </div>
 
@@ -195,7 +193,7 @@ export const HeroBentoGrid: React.FC = () => {
               className="text-[11px] font-cairo font-bold text-white/90 group-hover:text-white flex items-center gap-1.5"
             >
               <span>Read Shariah Charter</span>
-              <span className="w-4 h-4 rounded-full bg-emerald-400 text-brand-navy flex items-center justify-center text-[10px]">✓</span>
+              <span className="w-4 h-4 rounded-full bg-brand-sky text-brand-navy flex items-center justify-center text-[10px] font-bold">✓</span>
             </Link>
           </div>
         </div>

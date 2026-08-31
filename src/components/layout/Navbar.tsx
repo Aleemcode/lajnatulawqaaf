@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Logo } from '@/components/common/Logo';
-import { Menu, X, HeartHandshake, ShieldCheck } from 'lucide-react';
+import { Menu, X, Plus } from 'lucide-react';
 import { PledgeModal } from '@/components/common/PledgeModal';
 
 export const Navbar: React.FC = () => {
@@ -22,8 +22,8 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About & Governance', href: '/about' },
+    { name: 'About', href: '/about' },
+    { name: 'Why Us', href: '/#why-us' },
     { name: 'Endowments', href: '/endowments' },
     { name: 'Transparency', href: '/transparency' },
     { name: 'Contact', href: '/contact' },
@@ -36,12 +36,16 @@ export const Navbar: React.FC = () => {
           scrolled ? 'top-1' : 'top-2'
         }`}
       >
-        <div className="w-full max-w-5xl pointer-events-auto">
-          <nav className="glass-pill rounded-full px-4 sm:px-6 py-2.5 sm:py-3 shadow-2xl flex items-center justify-between transition-all">
-            {/* Brand Logo Lockup */}
-            <Logo variant="white" height={32} />
+        <div className="w-full max-w-4xl pointer-events-auto">
+          {/* Floating White Frosted Capsule matching Oxira reference */}
+          <nav className="bg-white/90 backdrop-blur-md rounded-full px-4 sm:px-5 py-2 sm:py-2.5 shadow-sm border border-slate-200/80 flex items-center justify-between transition-all">
+            {/* Left: Brand Icon + Divider */}
+            <div className="flex items-center gap-3">
+              <Logo variant="horizontal" height={30} />
+              <div className="hidden sm:block h-4 w-px bg-slate-200" />
+            </div>
 
-            {/* Desktop Navigation Links */}
+            {/* Center: Clean Direct Navigation Links */}
             <div className="hidden md:flex items-center gap-1 lg:gap-2">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
@@ -49,10 +53,10 @@ export const Navbar: React.FC = () => {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`px-3 py-1.5 rounded-full text-xs font-cairo font-semibold transition-all ${
+                    className={`px-3 py-1 rounded-full text-xs font-cairo font-semibold transition-all ${
                       isActive
-                        ? 'bg-white/20 text-white shadow-inner font-bold'
-                        : 'text-white/80 hover:text-white hover:bg-white/10'
+                        ? 'bg-brand-royal/10 text-brand-royal font-bold'
+                        : 'text-slate-600 hover:text-brand-navy hover:bg-slate-100/70'
                     }`}
                   >
                     {link.name}
@@ -61,14 +65,14 @@ export const Navbar: React.FC = () => {
               })}
             </div>
 
-            {/* CTA Button & Mobile Toggle */}
-            <div className="flex items-center gap-2.5">
+            {/* Right: Pledge Button & Mobile Hamburger */}
+            <div className="flex items-center gap-2">
               <button
                 onClick={() => setPledgeModalOpen(true)}
-                className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs font-cairo font-bold transition-all hover:scale-105 active:scale-95 group"
+                className="hidden sm:inline-flex items-center gap-2 pl-4 pr-1.5 py-1 rounded-full bg-brand-royal hover:bg-brand-royal-light text-white text-xs font-cairo font-bold shadow-sm transition-all group"
               >
                 <span>Pledge Waqf</span>
-                <span className="w-4 h-4 rounded-full bg-emerald-400 text-brand-navy flex items-center justify-center text-[10px] font-bold group-hover:scale-110 transition-transform">
+                <span className="w-6 h-6 rounded-full bg-brand-sky text-brand-navy flex items-center justify-center text-xs font-bold group-hover:scale-105 transition-transform">
                   +
                 </span>
               </button>
@@ -76,17 +80,17 @@ export const Navbar: React.FC = () => {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden p-1.5 text-white/90 hover:text-white rounded-full bg-white/10 hover:bg-white/20 transition-all"
+                className="md:hidden p-1.5 text-slate-600 hover:text-brand-navy rounded-full bg-slate-100 hover:bg-slate-200 transition-all"
                 aria-label="Toggle Navigation"
               >
-                {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
               </button>
             </div>
           </nav>
 
           {/* Mobile Dropdown */}
           {mobileMenuOpen && (
-            <div className="md:hidden mt-2 p-4 bg-brand-royal-dark/95 backdrop-blur-xl border border-white/15 rounded-3xl shadow-2xl text-white space-y-2 animate-in fade-in slide-in-from-top-4 duration-200">
+            <div className="md:hidden mt-2 p-4 bg-white/95 backdrop-blur-xl border border-slate-200/90 rounded-3xl shadow-xl space-y-2 animate-in fade-in slide-in-from-top-4 duration-200">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
@@ -96,8 +100,8 @@ export const Navbar: React.FC = () => {
                     onClick={() => setMobileMenuOpen(false)}
                     className={`block px-4 py-2.5 rounded-2xl text-sm font-cairo font-semibold transition-all ${
                       isActive
-                        ? 'bg-white/20 text-white font-bold'
-                        : 'text-white/80 hover:text-white hover:bg-white/10'
+                        ? 'bg-brand-royal/10 text-brand-royal font-bold'
+                        : 'text-slate-700 hover:text-brand-navy hover:bg-slate-100'
                     }`}
                   >
                     {link.name}
@@ -109,10 +113,10 @@ export const Navbar: React.FC = () => {
                   setMobileMenuOpen(false);
                   setPledgeModalOpen(true);
                 }}
-                className="w-full mt-2 py-3 px-4 rounded-2xl bg-brand-sky text-brand-navy font-cairo font-bold text-sm flex items-center justify-center gap-2 shadow-sky"
+                className="w-full mt-2 py-3 px-4 rounded-2xl bg-brand-royal text-white font-cairo font-bold text-sm flex items-center justify-center gap-2 shadow-sm"
               >
-                <HeartHandshake size={16} />
-                Pledge Waqf Endowment
+                <span>Pledge Waqf Endowment</span>
+                <Plus size={16} className="text-brand-sky" />
               </button>
             </div>
           )}

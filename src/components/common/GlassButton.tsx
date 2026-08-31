@@ -2,14 +2,15 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ArrowUpRight, ArrowRight } from 'lucide-react';
+import { ArrowRight, Download, ArrowUpRight, ChevronDown } from 'lucide-react';
 
 interface GlassButtonProps {
   children: React.ReactNode;
   href?: string;
   onClick?: () => void;
-  variant?: 'royal' | 'sky' | 'dark' | 'emerald' | 'primary' | 'secondary';
-  indicator?: 'arrow' | 'dot' | 'arrow-up-right' | 'none';
+  variant?: 'royal' | 'sky' | 'dark' | 'gold' | 'primary' | 'secondary';
+  indicator?: 'arrow' | 'dot' | 'arrow-up-right' | 'download' | 'chevron' | 'none';
+  direction?: 'right' | 'down' | 'up' | 'none';
   icon?: React.ReactNode;
   size?: 'sm' | 'md' | 'lg';
   className?: string;
@@ -23,6 +24,7 @@ export const GlassButton: React.FC<GlassButtonProps> = ({
   onClick,
   variant = 'royal',
   indicator = 'arrow',
+  direction,
   icon,
   size = 'md',
   className = '',
@@ -41,21 +43,63 @@ export const GlassButton: React.FC<GlassButtonProps> = ({
     lg: 'w-7 h-7',
   };
 
+  const iconSizes = size === 'sm' ? 12 : 14;
+
   const normalizedVariant = variant === 'primary' ? 'royal' : variant === 'secondary' ? 'sky' : variant;
 
   const variantStyles = {
     royal: 'glass-cta text-white',
     sky: 'glass-cta-sky text-brand-navy',
     dark: 'bg-gradient-to-r from-brand-navy via-slate-900 to-brand-navy text-white border border-white/15 shadow-lg',
-    emerald: 'bg-gradient-to-r from-emerald-800 via-emerald-700 to-emerald-900 text-white border border-emerald-400/20 shadow-lg',
+    gold: 'bg-gradient-to-r from-brand-gold via-amber-500 to-amber-600 text-brand-navy border border-white/20 shadow-gold',
   };
 
+  // Strictly Brand Color Tokens (Sky Blue or Gold) - Zero Foreign Green
   const indicatorColors = {
-    royal: 'bg-emerald-400 text-brand-navy shadow-sm',
+    royal: 'bg-brand-sky text-brand-navy shadow-sm',
     sky: 'bg-brand-navy text-brand-sky',
-    dark: 'bg-emerald-400 text-brand-navy',
-    emerald: 'bg-emerald-300 text-emerald-950',
+    dark: 'bg-brand-sky text-brand-navy',
+    gold: 'bg-brand-navy text-brand-gold',
   };
+
+  // Infer motion direction contextually if not explicitly passed
+  const effectiveDirection = direction || (
+    indicator === 'download' || indicator === 'chevron' ? 'down' :
+    indicator === 'arrow-up-right' ? 'up' : 'right'
+  );
+
+  const defaultIcon = (
+    indicator === 'arrow-up-right' ? <ArrowUpRight size={iconSizes} /> :
+    indicator === 'download' ? <Download size={iconSizes} /> :
+    indicator === 'chevron' ? <ChevronDown size={iconSizes} /> :
+    <ArrowRight size={iconSizes} />
+  );
+
+  const activeIcon = icon || defaultIcon;
+
+  // Contextual Directional Animation Styles
+  const getMotionClasses = () => {
+    switch (effectiveDirection) {
+      case 'down':
+        return {
+          primary: 'group-hover:translate-y-5',
+          duplicate: '-translate-y-5 group-hover:translate-y-0',
+        };
+      case 'up':
+        return {
+          primary: 'group-hover:-translate-y-5',
+          duplicate: 'translate-y-5 group-hover:translate-y-0',
+        };
+      case 'right':
+      default:
+        return {
+          primary: 'group-hover:translate-x-5',
+          duplicate: '-translate-x-5 group-hover:translate-x-0',
+        };
+    }
+  };
+
+  const motion = getMotionClasses();
 
   const content = (
     <>
@@ -66,34 +110,17 @@ export const GlassButton: React.FC<GlassButtonProps> = ({
         <span
           className={`relative overflow-hidden rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-105 ${indicatorSizes[size]} ${indicatorColors[normalizedVariant]}`}
         >
-          {icon ? (
-            <span className="relative w-full h-full flex items-center justify-center">
-              <span className="inline-flex transition-transform duration-300 ease-out group-hover:-translate-y-5 group-hover:translate-x-5">
-                {icon}
-              </span>
-              <span className="absolute inline-flex translate-y-5 -translate-x-5 transition-transform duration-300 ease-out group-hover:translate-y-0 group-hover:translate-x-0">
-                {icon}
-              </span>
-            </span>
-          ) : indicator === 'dot' ? (
+          {indicator === 'dot' ? (
             <span className="w-2 h-2 rounded-full bg-current animate-pulse" />
           ) : (
             <span className="relative w-full h-full flex items-center justify-center">
-              {/* Primary icon that slides up on hover */}
-              <span className="inline-flex transition-transform duration-300 ease-out group-hover:-translate-y-5 group-hover:translate-x-5">
-                {indicator === 'arrow-up-right' ? (
-                  <ArrowUpRight size={size === 'sm' ? 12 : 14} />
-                ) : (
-                  <ArrowRight size={size === 'sm' ? 12 : 14} />
-                )}
+              {/* Primary icon exiting contextually */}
+              <span className={`inline-flex transition-transform duration-300 ease-out ${motion.primary}`}>
+                {activeIcon}
               </span>
-              {/* Duplicate icon entering from bottom-left on hover */}
-              <span className="absolute inline-flex translate-y-5 -translate-x-5 transition-transform duration-300 ease-out group-hover:translate-y-0 group-hover:translate-x-0">
-                {indicator === 'arrow-up-right' ? (
-                  <ArrowUpRight size={size === 'sm' ? 12 : 14} />
-                ) : (
-                  <ArrowRight size={size === 'sm' ? 12 : 14} />
-                )}
+              {/* Duplicate icon entering contextually */}
+              <span className={`absolute inline-flex transition-transform duration-300 ease-out ${motion.duplicate}`}>
+                {activeIcon}
               </span>
             </span>
           )}

@@ -46,7 +46,7 @@ export const FAQSection: React.FC = () => {
                     <span
                       className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 transition-all ${
                         isOpen
-                          ? 'bg-brand-navy text-emerald-400'
+                          ? 'bg-brand-navy text-brand-sky'
                           : 'bg-slate-200/80 text-slate-400'
                       }`}
                     >
@@ -71,28 +71,27 @@ export const FAQSection: React.FC = () => {
               href="/contact"
               variant="royal"
               size="md"
-              indicator="arrow"
+              direction="right"
             >
               Contact Trustees
             </GlassButton>
           </div>
         </div>
 
-        {/* Right Column (Span 5): Stacked Creative Illustration/Photo Cards */}
+        {/* Right Column (Span 5): Stacked Creative Cards in Brand Tones */}
         <div className="lg:col-span-5 p-8 sm:p-12 space-y-6 bg-white/40 flex flex-col justify-center">
-          {/* Creative Card 1: Foil Smiley Sun Artwork */}
+          {/* Creative Card 1: Geometric Star / Sun in Royal & Gold */}
           <div className="bg-white rounded-3xl p-5 border border-brand-royal/10 shadow-clay space-y-4">
-            <div className="relative h-44 rounded-2xl overflow-hidden bg-[#99CC33] flex items-center justify-center">
-              {/* Illustrated Sun / Foil Artwork */}
-              <div className="relative w-28 h-28 flex items-center justify-center">
-                <svg viewBox="0 0 100 100" className="w-full h-full text-white/90">
+            <div className="relative h-44 rounded-2xl overflow-hidden bg-gradient-to-br from-brand-royal to-brand-navy flex items-center justify-center">
+              <div className="relative w-28 h-28 flex items-center justify-center text-brand-gold">
+                <svg viewBox="0 0 100 100" className="w-full h-full">
                   <polygon
-                    points="50,0 63,35 100,50 63,65 50,100 37,65 0,50 37,35"
+                    points="50,5 61,35 95,35 68,55 78,88 50,68 22,88 32,55 5,35 39,35"
                     fill="currentColor"
                     opacity="0.85"
                   />
-                  <circle cx="50" cy="50" r="24" fill="#FFFFFF" />
-                  <path d="M42 46H44M56 46H58M42 54C46 58 54 58 58 54" stroke="#123788" strokeWidth="3" strokeLinecap="round" />
+                  <circle cx="50" cy="50" r="14" fill="#0B1B3D" />
+                  <circle cx="50" cy="50" r="8" fill="#03BDE3" />
                 </svg>
               </div>
             </div>

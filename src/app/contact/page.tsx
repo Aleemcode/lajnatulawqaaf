@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { GlassButton } from '@/components/common/GlassButton';
 import { OrganicBlobs } from '@/components/common/OrganicBlobs';
-import { BrandWatermark } from '@/components/common/BrandWatermark';
 import { SITE_CONFIG, WAQF_PILLARS } from '@/data/siteData';
 import { Mail, Phone, MapPin, Clock, MessageSquare, Send, Building2, Globe, Shield } from 'lucide-react';
 
@@ -29,7 +28,6 @@ export default function ContactPage() {
   return (
     <div className="relative min-h-screen bg-brand-mist overflow-hidden pt-24 font-inter text-brand-navy">
       <OrganicBlobs />
-      <BrandWatermark />
 
       <main className="relative z-10">
         {/* Section 1: Header & Main Interactive Form Grid */}

@@ -63,7 +63,7 @@ export const FeaturedProjects: React.FC = () => {
               href="/endowments"
               variant="royal"
               size="md"
-              indicator="arrow"
+              direction="right"
             >
               See All Endowments
             </GlassButton>
@@ -82,8 +82,8 @@ export const FeaturedProjects: React.FC = () => {
                 <span className="px-3.5 py-1 rounded-full bg-brand-mist border border-slate-200/80 text-brand-navy text-xs font-cairo font-bold">
                   {proj.valuation} Valuation
                 </span>
-                <span className="text-xs font-cairo text-emerald-600 font-bold flex items-center gap-1">
-                  <MapPin size={12} /> {proj.location}
+                <span className="text-xs font-cairo text-brand-royal font-bold flex items-center gap-1">
+                  <MapPin size={12} className="text-brand-sky" /> {proj.location}
                 </span>
               </div>
 
@@ -111,7 +111,7 @@ export const FeaturedProjects: React.FC = () => {
                   </div>
                   <div className="w-full h-2 rounded-full bg-slate-100 overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-emerald-500 to-brand-royal rounded-full"
+                      className="h-full bg-gradient-to-r from-brand-sky to-brand-royal rounded-full"
                       style={{ width: `${proj.progressPercent}%` }}
                     />
                   </div>

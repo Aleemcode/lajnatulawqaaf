@@ -7,13 +7,11 @@ import { SHARIAH_SCHOLARS, TRUSTEES } from '@/data/siteData';
 import { ShieldCheck, Award, ArrowRight } from 'lucide-react';
 import { IslamicEmblem } from '@/components/common/IslamicEmblem';
 import { OrganicBlobs } from '@/components/common/OrganicBlobs';
-import { BrandWatermark } from '@/components/common/BrandWatermark';
 
 export const GovernanceSection: React.FC = () => {
   return (
     <section className="py-20 bg-brand-mist border-t border-brand-royal/10 relative overflow-hidden">
       <OrganicBlobs />
-      <BrandWatermark position='bottom-left' opacity={0.03} size='lg' />
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">

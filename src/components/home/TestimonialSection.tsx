@@ -28,7 +28,7 @@ export const TestimonialSection: React.FC = () => {
               onClick={() => setPledgeOpen(true)}
               variant="royal"
               size="md"
-              indicator="arrow"
+              direction="right"
             >
               Establish Waqf
             </GlassButton>
@@ -38,7 +38,7 @@ export const TestimonialSection: React.FC = () => {
         {/* Right Column (Span 8): Quote, Attribution, Avatar Stack, Arrow */}
         <div className="lg:col-span-8 p-8 sm:p-14 flex flex-col justify-between space-y-8 bg-brand-mist/30">
           <div className="space-y-4">
-            <div className="text-4xl sm:text-5xl font-serif text-emerald-800 font-bold leading-none">
+            <div className="text-4xl sm:text-5xl font-serif text-brand-sky font-bold leading-none">
               “
             </div>
             <p className="text-xl sm:text-2xl lg:text-3xl font-cairo font-medium text-slate-700 leading-relaxed">
@@ -52,7 +52,7 @@ export const TestimonialSection: React.FC = () => {
               <div className="text-[11px] text-slate-500 font-cairo">Regional Community Partner · Kano Hub</div>
             </div>
 
-            {/* Avatar Stack + Forward Arrow Disc */}
+            {/* Avatar Stack + Forward Arrow Disc in Royal Blue */}
             <div className="flex items-center gap-3">
               <div className="flex -space-x-2 overflow-hidden">
                 {[
@@ -68,7 +68,7 @@ export const TestimonialSection: React.FC = () => {
 
               <button
                 onClick={() => setPledgeOpen(true)}
-                className="w-10 h-10 rounded-full bg-emerald-800 text-white flex items-center justify-center shadow-md hover:bg-emerald-700 transition-all hover:scale-105"
+                className="w-10 h-10 rounded-full bg-brand-royal text-white flex items-center justify-center shadow-md hover:bg-brand-sky hover:text-brand-navy transition-all hover:scale-105"
                 title="Pledge Support"
               >
                 <ArrowRight size={18} />

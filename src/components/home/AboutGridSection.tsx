@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { GlassButton } from '@/components/common/GlassButton';
 import { Play, ShieldCheck, HeartHandshake } from 'lucide-react';
 
@@ -53,7 +52,7 @@ export const AboutGridSection: React.FC = () => {
             {/* Frosted Card 1 */}
             <div className="bg-white/80 backdrop-blur-md rounded-3xl p-6 border border-brand-royal/10 shadow-sm space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-brand-sky-soft text-brand-royal flex items-center justify-center">
                   <HeartHandshake size={16} />
                 </div>
                 <h3 className="font-cairo font-bold text-base text-brand-navy">Direct Impact</h3>
@@ -66,7 +65,7 @@ export const AboutGridSection: React.FC = () => {
             {/* Frosted Card 2 */}
             <div className="bg-white/80 backdrop-blur-md rounded-3xl p-6 border border-brand-royal/10 shadow-sm space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-blue-100 text-brand-royal flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-brand-gold-soft text-brand-gold flex items-center justify-center">
                   <ShieldCheck size={16} />
                 </div>
                 <h3 className="font-cairo font-bold text-base text-brand-navy">Full Transparency</h3>
@@ -82,7 +81,7 @@ export const AboutGridSection: React.FC = () => {
               href="/about"
               variant="royal"
               size="md"
-              indicator="arrow"
+              direction="right"
             >
               Learn More About Governance
             </GlassButton>

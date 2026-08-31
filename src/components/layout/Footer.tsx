@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Logo } from '@/components/common/Logo';
 import { SITE_CONFIG } from '@/data/siteData';
-import { ShieldCheck, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { OrganicBlobs } from '@/components/common/OrganicBlobs';
 
 export const Footer: React.FC = () => {
@@ -81,7 +81,7 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Social Media Glass Pill Buttons with Hover Slide Animation */}
+          {/* Social Media Glass Pill Buttons with Sky Blue Hover Indicator */}
           <div className="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-3 my-8">
             {[
               { platform: 'X / Twitter', url: 'https://twitter.com' },
@@ -96,17 +96,17 @@ export const Footer: React.FC = () => {
                 className="group flex items-center justify-between px-5 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all backdrop-blur-md"
               >
                 <div className="flex items-center gap-3">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                  <span className="w-2 h-2 rounded-full bg-brand-sky" />
                   <span className="text-xs font-cairo font-medium text-white/80 group-hover:text-white">
                     {soc.platform}
                   </span>
                 </div>
-                {/* Arrow disc with hover slide */}
-                <div className="w-6 h-6 rounded-full bg-white/10 text-emerald-400 flex items-center justify-center overflow-hidden relative group-hover:bg-emerald-400 group-hover:text-brand-navy transition-all">
-                  <span className="inline-flex transition-transform duration-300 group-hover:-translate-y-4 group-hover:translate-x-4">
+                {/* Arrow disc with contextual right-out / left-in motion */}
+                <div className="w-6 h-6 rounded-full bg-white/10 text-brand-sky flex items-center justify-center overflow-hidden relative group-hover:bg-brand-sky group-hover:text-brand-navy transition-all">
+                  <span className="inline-flex transition-transform duration-300 group-hover:translate-x-4">
                     <ArrowRight size={12} />
                   </span>
-                  <span className="absolute inline-flex translate-y-4 -translate-x-4 transition-transform duration-300 group-hover:translate-y-0 group-hover:translate-x-0">
+                  <span className="absolute inline-flex -translate-x-4 transition-transform duration-300 group-hover:translate-x-0">
                     <ArrowRight size={12} />
                   </span>
                 </div>

@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { WAQF_PILLARS } from '@/data/siteData';
 import { Building2, GraduationCap, Droplets, HeartPulse, ArrowRight } from 'lucide-react';
 import { OrganicBlobs } from '@/components/common/OrganicBlobs';
-import { BrandWatermark } from '@/components/common/BrandWatermark';
 
 export const PillarsSection: React.FC = () => {
   const getIcon = (iconName: string) => {
