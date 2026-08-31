@@ -84,16 +84,22 @@ export default function AboutPage() {
               
               <div className="mb-10">
                 <div className="flex -space-x-3 mb-4">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-brand-mist flex items-center justify-center overflow-hidden z-10" style={{ zIndex: 10 - i }}>
-                      <Image src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="Scholar" width={40} height={40} className="w-full h-full object-cover" />
+                  {[
+                    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80',
+                    'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80',
+                    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80',
+                    'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&q=80',
+                    'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&q=80',
+                  ].map((src, i) => (
+                    <div key={i} className="relative w-10 h-10 rounded-full border-2 border-white bg-brand-mist flex items-center justify-center overflow-hidden z-10" style={{ zIndex: 10 - i }}>
+                      <Image src={src} alt="Scholar" fill className="object-cover" />
                     </div>
                   ))}
-                  <div className="w-10 h-10 rounded-full border-2 border-white bg-brand-royal flex items-center justify-center text-xs font-bold text-white z-0">
+                  <div className="w-10 h-10 rounded-full border-2 border-white bg-brand-royal flex items-center justify-center text-xs font-bold text-white z-0 font-cairo">
                     +95
                   </div>
                 </div>
-                <p className="text-sm font-medium text-brand-navy">100+ Scholars & Trustees</p>
+                <p className="text-sm font-medium text-brand-navy font-cairo">100+ Scholars & Trustees</p>
                 <p className="text-xs text-slate-500 mt-1">Guiding our mission with wisdom</p>
               </div>
 
