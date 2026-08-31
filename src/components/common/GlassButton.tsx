@@ -8,8 +8,9 @@ interface GlassButtonProps {
   children: React.ReactNode;
   href?: string;
   onClick?: () => void;
-  variant?: 'royal' | 'sky' | 'dark' | 'emerald';
+  variant?: 'royal' | 'sky' | 'dark' | 'emerald' | 'primary' | 'secondary';
   indicator?: 'arrow' | 'dot' | 'arrow-up-right' | 'none';
+  icon?: React.ReactNode;
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   type?: 'button' | 'submit' | 'reset';
@@ -22,6 +23,7 @@ export const GlassButton: React.FC<GlassButtonProps> = ({
   onClick,
   variant = 'royal',
   indicator = 'arrow',
+  icon,
   size = 'md',
   className = '',
   type = 'button',
@@ -39,6 +41,8 @@ export const GlassButton: React.FC<GlassButtonProps> = ({
     lg: 'w-7 h-7',
   };
 
+  const normalizedVariant = variant === 'primary' ? 'royal' : variant === 'secondary' ? 'sky' : variant;
+
   const variantStyles = {
     royal: 'glass-cta text-white',
     sky: 'glass-cta-sky text-brand-navy',
@@ -55,12 +59,23 @@ export const GlassButton: React.FC<GlassButtonProps> = ({
 
   const content = (
     <>
-      <span className="font-cairo font-bold tracking-wide">{children}</span>
+      <span className="font-cairo font-bold tracking-wide flex items-center gap-2">
+        {children}
+      </span>
       {indicator !== 'none' && (
         <span
-          className={`relative overflow-hidden rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-105 ${indicatorSizes[size]} ${indicatorColors[variant]}`}
+          className={`relative overflow-hidden rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-105 ${indicatorSizes[size]} ${indicatorColors[normalizedVariant]}`}
         >
-          {indicator === 'dot' ? (
+          {icon ? (
+            <span className="relative w-full h-full flex items-center justify-center">
+              <span className="inline-flex transition-transform duration-300 ease-out group-hover:-translate-y-5 group-hover:translate-x-5">
+                {icon}
+              </span>
+              <span className="absolute inline-flex translate-y-5 -translate-x-5 transition-transform duration-300 ease-out group-hover:translate-y-0 group-hover:translate-x-0">
+                {icon}
+              </span>
+            </span>
+          ) : indicator === 'dot' ? (
             <span className="w-2 h-2 rounded-full bg-current animate-pulse" />
           ) : (
             <span className="relative w-full h-full flex items-center justify-center">
@@ -87,7 +102,7 @@ export const GlassButton: React.FC<GlassButtonProps> = ({
     </>
   );
 
-  const baseClasses = `group relative inline-flex items-center justify-between rounded-full transition-all duration-300 select-none ${sizeClasses[size]} ${variantStyles[variant]} ${fullWidth ? 'w-full' : ''} ${className}`;
+  const baseClasses = `group relative inline-flex items-center justify-between rounded-full transition-all duration-300 select-none ${sizeClasses[size]} ${variantStyles[normalizedVariant]} ${fullWidth ? 'w-full' : ''} ${className}`;
 
   if (href) {
     return (

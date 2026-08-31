@@ -1,21 +1,36 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, CheckCircle, HeartHandshake } from 'lucide-react';
-import { WAQF_PILLARS } from '@/data/siteData';
+import { WAQF_PILLARS, Project } from '@/data/siteData';
 import { OrganicBlobs } from '@/components/common/OrganicBlobs';
 
 interface PledgeModalProps {
   isOpen: boolean;
   onClose: () => void;
+  project?: Project | null;
+  initialPillar?: string;
 }
 
-export const PledgeModal: React.FC<PledgeModalProps> = ({ isOpen, onClose }) => {
+export const PledgeModal: React.FC<PledgeModalProps> = ({
+  isOpen,
+  onClose,
+  project,
+  initialPillar,
+}) => {
   const [cause, setCause] = useState('real-estate');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (project?.category) {
+      setCause(project.category);
+    } else if (initialPillar) {
+      setCause(initialPillar);
+    }
+  }, [project, initialPillar]);
 
   if (!isOpen) return null;
 
@@ -39,7 +54,9 @@ export const PledgeModal: React.FC<PledgeModalProps> = ({ isOpen, onClose }) => 
 
         <div className="relative z-10 pt-8 px-6 text-center">
           <div className="text-brand-royal text-2xl mb-1">✻</div>
-          <h3 className="font-cairo font-bold text-xl text-brand-navy">Dedicate an Endowment</h3>
+          <h3 className="font-cairo font-bold text-xl text-brand-navy">
+            {project ? `Pledge: ${project.title}` : 'Dedicate an Endowment'}
+          </h3>
           <p className="text-slate-600 text-sm mt-1">
             Every endowment brings hope, dignity, and perpetual blessings to communities
           </p>
@@ -75,6 +92,7 @@ export const PledgeModal: React.FC<PledgeModalProps> = ({ isOpen, onClose }) => 
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                placeholder="e.g. Alhaji Ibrahim Dan-Ali"
                 className="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-royal/20 focus:border-brand-royal bg-white"
               />
             </div>
@@ -88,13 +106,14 @@ export const PledgeModal: React.FC<PledgeModalProps> = ({ isOpen, onClose }) => 
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                placeholder="your.email@domain.com"
                 className="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-royal/20 focus:border-brand-royal bg-white"
               />
             </div>
 
             <div>
               <label className="block text-sm font-medium text-brand-navy mb-1.5">
-                Choose the Cause
+                Endowment Portfolio Cause
               </label>
               <select
                 value={cause}
@@ -111,12 +130,13 @@ export const PledgeModal: React.FC<PledgeModalProps> = ({ isOpen, onClose }) => 
 
             <div>
               <label className="block text-sm font-medium text-brand-navy mb-1.5">
-                Message (Optional)
+                Message or Dedication Intent (Optional)
               </label>
               <textarea
                 rows={3}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
+                placeholder="State any specific requests, dedication names, or questions..."
                 className="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-royal/20 focus:border-brand-royal bg-white resize-none"
               />
             </div>

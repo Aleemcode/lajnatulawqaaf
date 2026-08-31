@@ -1,189 +1,219 @@
 'use client';
 
 import React from 'react';
-import { IslamicEmblem } from '@/components/common/IslamicEmblem';
-import { SITE_CONFIG } from '@/data/siteData';
-import { ShieldCheck, FileText, Download, Lock, CheckCircle2, Scale, RefreshCw, ArrowRight } from 'lucide-react';
+import { GlassButton } from '@/components/common/GlassButton';
 import { OrganicBlobs } from '@/components/common/OrganicBlobs';
 import { BrandWatermark } from '@/components/common/BrandWatermark';
+import { IslamicEmblem } from '@/components/common/IslamicEmblem';
+import { PledgeModal } from '@/components/common/PledgeModal';
+import { SITE_CONFIG } from '@/data/siteData';
+import { FileText, Shield, Download, Target, PieChart, Activity, Lock, Search } from 'lucide-react';
 
 export default function TransparencyPage() {
-  const reports = [
-    {
-      title: "2024 Annual Audited Financial Statement",
-      type: "External Financial Audit",
-      date: "Published Ramadan 1446 / March 2025",
-      size: "2.4 MB · PDF",
-      auditor: "Independent Tier-1 Chartered Accountants",
-    },
-    {
-      title: "2024 Shariah Supervisory Board Annual Certification",
-      type: "Shariah Fatwa & Compliance Audit",
-      date: "Published Shawwal 1446 / April 2025",
-      size: "1.8 MB · PDF",
-      auditor: "AAOIFI Certified Shariah Committee",
-    },
-    {
-      title: "Al-Kawthar Solar Water Grid Network Impact Assessment",
-      type: "Field Impact Report",
-      date: "Published Dhul Hijjah 1445 / June 2024",
-      size: "3.1 MB · PDF",
-      auditor: "Community Impact Evaluation Board",
-    },
-    {
-      title: "2023 Annual Audited Financial Statement",
-      type: "External Financial Audit",
-      date: "Published Ramadan 1445 / April 2024",
-      size: "2.1 MB · PDF",
-      auditor: "Independent Tier-1 Chartered Accountants",
-    },
-  ];
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
 
   return (
-    <div className="pt-28 sm:pt-36 pb-20">
-      {/* Header */}
-      <section className="relative overflow-hidden max-w-6xl mx-auto px-4 sm:px-6 mb-16 text-center py-8 rounded-3xl">
-        <OrganicBlobs />
-        <BrandWatermark position='top-right' opacity={0.03} size='lg' />
-        <div className="relative z-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-royal/5 border border-brand-royal/15 text-brand-royal text-xs font-cairo font-bold mb-4">
-            <ShieldCheck size={14} />
-            <span>Integrity & Shariah Assurance</span>
-          </div>
-          <h1 className="text-3xl sm:text-5xl font-bold font-cairo text-brand-navy max-w-3xl mx-auto leading-tight">
-            Committed to Protecting Your Endowments
-          </h1>
-          <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto mt-4 leading-relaxed">
-            The Islamic law of Waqf places a sacred trust (*Amanah*) on our shoulders. We share our financial records, Shariah certifications, and community impact openly every year.
-          </p>
-        </div>
-      </section>
+    <div className="relative min-h-screen bg-brand-mist overflow-hidden pt-24 font-inter text-brand-navy">
+      <OrganicBlobs />
+      <BrandWatermark />
 
-      {/* 100% Principal Protection Core Policy */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-16">
-        <div className="bg-gradient-to-br from-brand-royal via-brand-royal-dark to-brand-navy text-white rounded-3xl p-8 sm:p-12 shadow-2xl border border-white/15 relative overflow-hidden">
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-brand-gold text-xs font-cairo font-bold">
-              <Lock size={14} />
-              <span>The Principal Inviolability Covenant</span>
-            </div>
-            <h2 className="text-2xl sm:text-4xl font-bold font-cairo text-white">
-              The 100% Principal Preserved Principle
-            </h2>
-            <p className="text-white/80 text-xs sm:text-sm leading-relaxed">
-              When you establish a Waqf with {SITE_CONFIG.name}, 100% of your capital is invested into physical, title-deeded assets (commercial real estate, agricultural hubs, and solar infrastructure) or AAOIFI-compliant instruments. The principal cannot be gifted, liquidated, or consumed. Only recurring net yields are distributed to beneficiaries.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
-              <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10">
-                <div className="text-xl font-bold font-cairo text-brand-gold">0%</div>
-                <div className="text-xs font-semibold text-white/90 mt-0.5">Corpus Erosion</div>
-                <div className="text-[10px] text-white/60">Original capital remains untouched.</div>
+      <main className="relative z-10">
+        {/* Section 1: Header & Fiduciary Covenant */}
+        <section className="border-b border-brand-royal/10">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12">
+            <div className="md:col-span-4 p-8 border-r border-brand-royal/10 flex flex-col justify-center space-y-6">
+              <div className="inline-flex items-center space-x-2 px-3 py-1 bg-brand-royal/5 border border-brand-royal/20 rounded-full text-sm font-medium text-brand-royal">
+                <Shield className="w-4 h-4" />
+                <span>Audits & Shariah Assurance</span>
               </div>
-              <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10">
-                <div className="text-xl font-bold font-cairo text-brand-sky">85%</div>
-                <div className="text-xs font-semibold text-white/90 mt-0.5">Direct Social Yield</div>
-                <div className="text-[10px] text-white/60">Orphan welfare, education, clean water.</div>
-              </div>
-              <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10">
-                <div className="text-xl font-bold font-cairo text-white">15%</div>
-                <div className="text-xs font-semibold text-white/90 mt-0.5">Asset Reinvestment</div>
-                <div className="text-[10px] text-white/60">Property repairs & emergency reserve.</div>
+              <p className="text-sm text-brand-navy/60 font-medium">
+                Certified in accordance with AAOIFI governance and compliance frameworks.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 bg-white border border-brand-royal/10 rounded-full text-xs font-semibold text-brand-royal">
+                  0% Corpus Erosion
+                </span>
+                <span className="px-3 py-1 bg-white border border-brand-royal/10 rounded-full text-xs font-semibold text-brand-royal">
+                  85% Social Yield
+                </span>
+                <span className="px-3 py-1 bg-white border border-brand-royal/10 rounded-full text-xs font-semibold text-brand-royal">
+                  15% Asset Reserve
+                </span>
               </div>
             </div>
+            <div className="md:col-span-8 p-12 lg:p-16 flex flex-col justify-center items-start space-y-8 bg-white/50 backdrop-blur-sm">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-cairo text-brand-navy leading-tight">
+                Uncompromising transparency and mathematical accountability for eternal endowments.
+              </h1>
+              <GlassButton onClick={() => console.log('Download Annual Reports')} icon={<Download className="w-5 h-5" />}>
+                Download Annual Reports
+              </GlassButton>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Downloadable Audited Reports Library */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20">
-        <div className="flex items-center justify-between mb-8 pb-3 border-b border-slate-200">
-          <div>
-            <h3 className="font-cairo font-bold text-xl text-brand-navy">
-              Public Audit Archive & Shariah Fatwas
-            </h3>
-            <p className="text-slate-500 text-xs mt-0.5">
-              Download complete, unredacted annual financial and Shariah audit statements.
-            </p>
-          </div>
-          <span className="text-xs font-bold font-cairo text-brand-royal bg-brand-mist px-3 py-1.5 rounded-full border border-slate-200">
-            Official Disclosure Portal
-          </span>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {reports.map((rep, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-3xl p-6 border border-brand-royal/10 shadow-clay flex flex-col justify-between card-hover-lift"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="px-3 py-1 rounded-full bg-brand-mist border border-slate-200 text-brand-navy text-[10px] font-bold font-cairo uppercase">
-                    {rep.type}
-                  </span>
-                  <span className="text-[11px] font-mono text-slate-400">{rep.size}</span>
+        {/* Section 2: Public Audit Archive */}
+        <section className="border-b border-brand-royal/10">
+          <div className="max-w-6xl mx-auto p-8 lg:p-16">
+            <div className="mb-12">
+              <h2 className="text-3xl font-bold font-cairo text-brand-navy mb-4">Public Audit Archive</h2>
+              <p className="text-brand-navy/70 max-w-2xl">
+                Access our independently verified financial statements, impact reports, and Shariah compliance fatwas.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Card 1 */}
+              <div className="bg-white p-8 border border-brand-royal/10 rounded-2xl shadow-sm hover:shadow-md transition-shadow group">
+                <div className="flex justify-between items-start mb-6">
+                  <div className="w-12 h-12 bg-brand-royal/5 rounded-xl flex items-center justify-center text-brand-royal">
+                    <FileText className="w-6 h-6" />
+                  </div>
+                  <span className="text-xs font-bold text-brand-royal/60 px-2 py-1 bg-brand-mist rounded-md">3.2 MB PDF</span>
                 </div>
-                <h4 className="font-cairo font-bold text-base text-brand-navy leading-snug mb-2">
-                  {rep.title}
-                </h4>
-                <p className="text-slate-500 text-xs flex items-center gap-1.5">
-                  <ShieldCheck size={14} className="text-emerald-600 flex-shrink-0" />
-                  <span>Audited by: {rep.auditor}</span>
+                <h3 className="text-xl font-bold font-cairo mb-2">2024 Financial Statement</h3>
+                <div className="text-sm text-brand-navy/60 mb-6 space-y-1">
+                  <p>Auditor: Deloitte & Touche</p>
+                  <p>Date: Q1 2024</p>
+                </div>
+                <GlassButton className="w-full justify-center group-hover:bg-brand-royal group-hover:text-white transition-colors" icon={<Download className="w-4 h-4" />}>
+                  Download PDF
+                </GlassButton>
+              </div>
+
+              {/* Card 2 */}
+              <div className="bg-white p-8 border border-brand-royal/10 rounded-2xl shadow-sm hover:shadow-md transition-shadow group">
+                <div className="flex justify-between items-start mb-6">
+                  <div className="w-12 h-12 bg-brand-royal/5 rounded-xl flex items-center justify-center text-brand-royal">
+                    <Shield className="w-6 h-6" />
+                  </div>
+                  <span className="text-xs font-bold text-brand-royal/60 px-2 py-1 bg-brand-mist rounded-md">1.1 MB PDF</span>
+                </div>
+                <h3 className="text-xl font-bold font-cairo mb-2">2024 Shariah Fatwa</h3>
+                <div className="text-sm text-brand-navy/60 mb-6 space-y-1">
+                  <p>Auditor: Shariah Supervisory Board</p>
+                  <p>Date: Q1 2024</p>
+                </div>
+                <GlassButton className="w-full justify-center group-hover:bg-brand-royal group-hover:text-white transition-colors" icon={<Download className="w-4 h-4" />}>
+                  Download PDF
+                </GlassButton>
+              </div>
+
+              {/* Card 3 */}
+              <div className="bg-white p-8 border border-brand-royal/10 rounded-2xl shadow-sm hover:shadow-md transition-shadow group">
+                <div className="flex justify-between items-start mb-6">
+                  <div className="w-12 h-12 bg-brand-royal/5 rounded-xl flex items-center justify-center text-brand-royal">
+                    <Target className="w-6 h-6" />
+                  </div>
+                  <span className="text-xs font-bold text-brand-royal/60 px-2 py-1 bg-brand-mist rounded-md">5.4 MB PDF</span>
+                </div>
+                <h3 className="text-xl font-bold font-cairo mb-2">Solar Grid Impact Report</h3>
+                <div className="text-sm text-brand-navy/60 mb-6 space-y-1">
+                  <p>Auditor: Impact Verification Ltd.</p>
+                  <p>Date: Q4 2023</p>
+                </div>
+                <GlassButton className="w-full justify-center group-hover:bg-brand-royal group-hover:text-white transition-colors" icon={<Download className="w-4 h-4" />}>
+                  Download PDF
+                </GlassButton>
+              </div>
+
+              {/* Card 4 */}
+              <div className="bg-white p-8 border border-brand-royal/10 rounded-2xl shadow-sm hover:shadow-md transition-shadow group">
+                <div className="flex justify-between items-start mb-6">
+                  <div className="w-12 h-12 bg-brand-royal/5 rounded-xl flex items-center justify-center text-brand-royal">
+                    <FileText className="w-6 h-6" />
+                  </div>
+                  <span className="text-xs font-bold text-brand-royal/60 px-2 py-1 bg-brand-mist rounded-md">2.8 MB PDF</span>
+                </div>
+                <h3 className="text-xl font-bold font-cairo mb-2">2023 Financial Statement</h3>
+                <div className="text-sm text-brand-navy/60 mb-6 space-y-1">
+                  <p>Auditor: Deloitte & Touche</p>
+                  <p>Date: Q1 2023</p>
+                </div>
+                <GlassButton className="w-full justify-center group-hover:bg-brand-royal group-hover:text-white transition-colors" icon={<Download className="w-4 h-4" />}>
+                  Download PDF
+                </GlassButton>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 3: The 100% Principal Protection Covenant */}
+        <section className="border-b border-brand-royal/10">
+          <div className="max-w-6xl mx-auto p-8 lg:p-16">
+            <div className="bg-gradient-to-br from-brand-navy to-brand-royal rounded-3xl p-8 lg:p-12 text-white relative overflow-hidden shadow-xl border border-brand-royal/20">
+              <div className="absolute right-0 top-0 opacity-10 pointer-events-none">
+                <IslamicEmblem className="w-64 h-64 text-white" />
+              </div>
+              <div className="relative z-10 max-w-3xl mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold font-cairo mb-4">The 100% Principal Protection Covenant</h2>
+                <p className="text-white/80 text-lg">
+                  Every Waqf contribution is treated as an inviolable trust (Amanah). The principal corpus is permanently protected and invested in low-risk, Shariah-compliant physical assets, ensuring sustainable yields for generations.
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+                <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10">
+                  <PieChart className="w-8 h-8 text-brand-sky mb-4" />
+                  <h4 className="text-xl font-bold font-cairo mb-2">100% Retained</h4>
+                  <p className="text-sm text-white/70">Waqf principal is never spent, ensuring perpetual endowment longevity.</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10">
+                  <Activity className="w-8 h-8 text-brand-amber mb-4" />
+                  <h4 className="text-xl font-bold font-cairo mb-2">Halal Yields</h4>
+                  <p className="text-sm text-white/70">Investments are restricted to real estate, agriculture, and ethical sukuk.</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10">
+                  <Lock className="w-8 h-8 text-brand-sky mb-4" />
+                  <h4 className="text-xl font-bold font-cairo mb-2">Legal Trust</h4>
+                  <p className="text-sm text-white/70">Governed by an irrevocable trust deed protecting beneficiary rights.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 4: Key Shariah Governance Commitments */}
+        <section className="border-b border-brand-royal/10">
+          <div className="max-w-6xl mx-auto p-8 lg:p-16">
+            <h2 className="text-3xl font-bold font-cairo text-brand-navy mb-12 text-center">Key Governance Commitments</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="flex flex-col space-y-4 p-6 border-l-2 border-brand-royal/20 hover:border-brand-royal transition-colors">
+                <div className="w-10 h-10 bg-brand-royal/5 rounded-full flex items-center justify-center text-brand-royal">
+                  <Shield className="w-5 h-5" />
+                </div>
+                <h3 className="text-xl font-bold font-cairo text-brand-navy">Zero Riba Principle</h3>
+                <p className="text-sm text-brand-navy/70">
+                  Absolute prohibition of interest-bearing instruments. All financial operations are rigorously screened to exclude Riba, Gharar (uncertainty), and Maysir (gambling).
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-                <span className="text-[11px] text-slate-400 font-cairo">{rep.date}</span>
-                <button
-                  onClick={() => alert(`Downloading ${rep.title}... (Demo File)`)}
-                  className="px-4 py-2 rounded-xl bg-brand-royal hover:bg-brand-royal-light text-white font-cairo font-bold text-xs shadow-sm flex items-center gap-1.5 transition-all"
-                >
-                  <Download size={14} />
-                  <span>Download PDF</span>
-                </button>
+              <div className="flex flex-col space-y-4 p-6 border-l-2 border-brand-royal/20 hover:border-brand-royal transition-colors">
+                <div className="w-10 h-10 bg-brand-royal/5 rounded-full flex items-center justify-center text-brand-royal">
+                  <Lock className="w-5 h-5" />
+                </div>
+                <h3 className="text-xl font-bold font-cairo text-brand-navy">Beneficiary Ring-Fencing</h3>
+                <p className="text-sm text-brand-navy/70">
+                  Waqf yields are strictly allocated to designated causes. Operational expenses are capped and transparently funded from separate administrative reserves.
+                </p>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
 
-      {/* Shariah Charter Compliance Principles */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="bg-brand-mist rounded-3xl p-8 border border-brand-royal/15">
-          <h3 className="font-cairo font-bold text-lg text-brand-navy mb-4 text-center">
-            Key Shariah Governance Commitments
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="p-4 rounded-2xl bg-white border border-slate-200/80 space-y-1.5">
-              <div className="font-cairo font-bold text-xs text-brand-navy flex items-center gap-2">
-                <CheckCircle2 size={16} className="text-brand-sky" />
-                <span>Zero Interest (Riba) Principle</span>
+              <div className="flex flex-col space-y-4 p-6 border-l-2 border-brand-royal/20 hover:border-brand-royal transition-colors">
+                <div className="w-10 h-10 bg-brand-royal/5 rounded-full flex items-center justify-center text-brand-royal">
+                  <Search className="w-5 h-5" />
+                </div>
+                <h3 className="text-xl font-bold font-cairo text-brand-navy">Dual Independent Auditing</h3>
+                <p className="text-sm text-brand-navy/70">
+                  Simultaneous financial auditing by top-tier global accounting firms and Shariah compliance verification by an independent board of eminent scholars.
+                </p>
               </div>
-              <p className="text-slate-500 text-xs">
-                No conventional interest-bearing debt is ever placed on Waqf assets. All transactions utilize asset-backed Shariah modes.
-              </p>
-            </div>
-            <div className="p-4 rounded-2xl bg-white border border-slate-200/80 space-y-1.5">
-              <div className="font-cairo font-bold text-xs text-brand-navy flex items-center gap-2">
-                <CheckCircle2 size={16} className="text-brand-sky" />
-                <span>Beneficiary Ring-Fencing</span>
-              </div>
-              <p className="text-slate-500 text-xs">
-                Yields generated from education Waqf can never be diverted to general admin—strictest adherence to donor conditions (*Shart al-Waqif*).
-              </p>
-            </div>
-            <div className="p-4 rounded-2xl bg-white border border-slate-200/80 space-y-1.5">
-              <div className="font-cairo font-bold text-xs text-brand-navy flex items-center gap-2">
-                <CheckCircle2 size={16} className="text-brand-sky" />
-                <span>Dual External Auditing</span>
-              </div>
-              <p className="text-slate-500 text-xs">
-                Financial numbers audited by certified chartered accountants; religious compliance audited independently by Shariah jurists.
-              </p>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
+      
+      <PledgeModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }
