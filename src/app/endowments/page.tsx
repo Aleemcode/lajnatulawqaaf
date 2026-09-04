@@ -190,7 +190,7 @@ export default function EndowmentsPage() {
                     Perpetual Waqf
                   </div>
                   <div className="absolute bottom-4 left-4 bg-brand-navy/80 backdrop-blur text-white text-xs px-2.5 py-1 rounded-md flex items-center">
-                    <MapPin className="w-3 h-3 mr-1 text-brand-amber" />
+                    <MapPin className="w-3 h-3 mr-1 text-brand-gold" />
                     {project.location || 'Multiple Locations'}
                   </div>
                 </div>
