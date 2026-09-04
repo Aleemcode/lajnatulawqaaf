@@ -20,16 +20,16 @@ export const CTASection: React.FC = () => {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-gold/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-2xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 text-brand-gold text-xs font-cairo font-bold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/25 text-brand-gold text-xs font-cairo font-bold backdrop-blur-sm shadow-sm">
             <IslamicEmblem size="sm" glow={false} />
             <span>Sadaqah Jariyah That Never Ceases</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-bold font-cairo leading-tight tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold font-cairo text-white leading-tight tracking-tight drop-shadow-sm">
             Leave a Legacy of Eternal Blessing
           </h2>
 
-          <p className="text-white/80 text-sm sm:text-base leading-relaxed font-sans">
+          <p className="text-white/90 text-sm sm:text-base leading-relaxed font-sans max-w-xl mx-auto">
             Whether dedicating a named commercial property, endowing a rural solar borehole network, or pledging a fractional share—your reward continues for generations.
           </p>
 
