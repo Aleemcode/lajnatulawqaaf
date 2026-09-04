@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,8 +7,12 @@
 @layer base {
   :root {
     --brand-royal: #123788;
+    --brand-royal-dark: #0B245B;
+    --brand-royal-light: #1A4CB8;
     --brand-sky: #03BDE3;
+    --brand-sky-soft: #E6F8FC;
     --brand-gold: #EFAC02;
+    --brand-gold-soft: #FEF7E6;
     --brand-navy: #0B1B3D;
     --brand-mist: #F8FAFC;
   }
@@ -17,11 +21,12 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   body {
     @apply bg-brand-mist text-slate-800 font-sans selection:bg-brand-sky/20 selection:text-brand-royal;
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -34,7 +39,6 @@
    FOUNDATION LAYER — GRAIN
    ============================ */
 
-/* Extremely subtle paper/linen noise texture overlay */
 .foundation-grain {
   position: relative;
 }
@@ -58,7 +62,6 @@
    ORGANIC BLOB SHADER
    ============================ */
 
-/* Slow, gentle drifting animation for organic blobs */
 @keyframes blob-drift {
   0%, 100% {
     border-radius: 50% 40% 60% 50% / 50% 60% 40% 50%;
@@ -66,15 +69,15 @@
   }
   25% {
     border-radius: 60% 50% 40% 55% / 45% 50% 60% 50%;
-    transform: translate(15px, -20px) scale(1.02);
+    transform: translate(18px, -22px) scale(1.03);
   }
   50% {
     border-radius: 45% 55% 50% 60% / 55% 45% 55% 45%;
-    transform: translate(-10px, 15px) scale(0.98);
+    transform: translate(-12px, 16px) scale(0.97);
   }
   75% {
     border-radius: 55% 45% 55% 45% / 50% 55% 45% 55%;
-    transform: translate(20px, 10px) scale(1.01);
+    transform: translate(22px, 12px) scale(1.02);
   }
 }
 
@@ -85,15 +88,15 @@
   }
   25% {
     border-radius: 50% 45% 55% 50% / 50% 55% 45% 55%;
-    transform: translate(-20px, 15px) scale(1.03);
+    transform: translate(-22px, 16px) scale(1.04);
   }
   50% {
     border-radius: 55% 50% 45% 55% / 45% 50% 55% 50%;
-    transform: translate(15px, -15px) scale(0.97);
+    transform: translate(16px, -18px) scale(0.96);
   }
   75% {
     border-radius: 45% 55% 50% 45% / 55% 45% 50% 55%;
-    transform: translate(-15px, -10px) scale(1.02);
+    transform: translate(-16px, -12px) scale(1.02);
   }
 }
 
@@ -104,28 +107,94 @@
   }
   33% {
     border-radius: 45% 55% 55% 45% / 55% 45% 45% 55%;
-    transform: translate(10px, -12px) scale(1.01);
+    transform: translate(12px, -14px) scale(1.02);
   }
   66% {
     border-radius: 50% 50% 45% 55% / 50% 50% 55% 45%;
-    transform: translate(-8px, 8px) scale(0.99);
+    transform: translate(-10px, 10px) scale(0.98);
   }
+}
+
+/* ============================
+   MODERN TACTILE SURFACES
+   ============================ */
+
+/* Pristine elevated card with top-edge specular highlight */
+.surface-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(18, 55, 136, 0.08);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.95),
+    0 10px 30px -10px rgba(18, 55, 136, 0.06),
+    0 2px 6px -1px rgba(18, 55, 136, 0.03);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.surface-card:hover {
+  border-color: rgba(18, 55, 136, 0.16);
+  transform: translateY(-3px);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 1),
+    0 20px 40px -12px rgba(18, 55, 136, 0.12),
+    0 4px 12px -2px rgba(18, 55, 136, 0.05);
+}
+
+/* Deep Royal surface with subtle interior glow */
+.surface-dark-card {
+  background: linear-gradient(145deg, #123788 0%, #0B245B 50%, #0B1B3D 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.22),
+    0 12px 35px -10px rgba(11, 27, 61, 0.35),
+    0 4px 10px -2px rgba(11, 27, 61, 0.2);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.surface-dark-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+    0 24px 50px -12px rgba(11, 27, 61, 0.45),
+    0 6px 16px -3px rgba(11, 27, 61, 0.25);
+}
+
+/* Warm parchment card surface */
+.surface-parchment {
+  background: #F8F6F0;
+  border: 1px solid rgba(180, 160, 130, 0.15);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.8),
+    0 8px 25px -8px rgba(18, 55, 136, 0.04);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.surface-parchment:hover {
+  transform: translateY(-3px);
+  border-color: rgba(180, 160, 130, 0.25);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.95),
+    0 16px 35px -10px rgba(18, 55, 136, 0.08);
+}
+
+/* Micro-badge styling */
+.badge-pill {
+  @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-cairo font-bold tracking-wide transition-all select-none;
 }
 
 /* ============================
    GLASS EFFECT CTAs
    ============================ */
 
-/* Primary Royal Blue glass CTA */
 .glass-cta {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #1A4CB8 0%, #123788 40%, #0B245B 100%);
+  background: linear-gradient(135deg, #1A4CB8 0%, #123788 45%, #0B245B 100%);
   box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.2),
-    0 4px 16px rgba(18, 55, 136, 0.3),
-    0 1px 3px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    inset 0 1px 1px rgba(255, 255, 255, 0.22),
+    0 6px 20px -4px rgba(18, 55, 136, 0.35),
+    0 2px 4px rgba(0, 0, 0, 0.08);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-cta::before {
@@ -142,26 +211,25 @@
 
 .glass-cta:hover {
   box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.25),
-    0 6px 24px rgba(18, 55, 136, 0.4),
-    0 2px 6px rgba(0, 0, 0, 0.12);
-  transform: translateY(-1px);
+    inset 0 1px 1px rgba(255, 255, 255, 0.28),
+    0 8px 28px -4px rgba(18, 55, 136, 0.45),
+    0 3px 8px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1.5px);
 }
 
 .glass-cta:active {
   transform: translateY(0px) scale(0.99);
 }
 
-/* Sky Blue glass CTA variant */
 .glass-cta-sky {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #04D4FF 0%, #03BDE3 40%, #029BC0 100%);
+  background: linear-gradient(135deg, #04D4FF 0%, #03BDE3 45%, #029BC0 100%);
   box-shadow:
     inset 0 1px 1px rgba(255, 255, 255, 0.25),
-    0 4px 16px rgba(3, 189, 227, 0.3),
-    0 1px 3px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    0 6px 20px -4px rgba(3, 189, 227, 0.35),
+    0 2px 4px rgba(0, 0, 0, 0.06);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-cta-sky::before {
@@ -178,49 +246,10 @@
 
 .glass-cta-sky:hover {
   box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.3),
-    0 6px 24px rgba(3, 189, 227, 0.4),
-    0 2px 6px rgba(0, 0, 0, 0.1);
-  transform: translateY(-1px);
-}
-
-/* ============================
-   HAIRLINE GRIDLINES
-   ============================ */
-
-.grid-line-x {
-  border-bottom: 1px solid rgba(18, 55, 136, 0.08);
-}
-
-.grid-line-y {
-  border-right: 1px solid rgba(18, 55, 136, 0.08);
-}
-
-/* ============================
-   LEGACY GLASS & CARD STYLES
-   ============================ */
-
-.glass-pill {
-  background: rgba(18, 55, 136, 0.94);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.glass-card {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(18, 55, 136, 0.08);
-}
-
-.card-hover-lift {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.card-hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 35px -10px rgba(18, 55, 136, 0.12), 0 1px 3px rgba(18, 55, 136, 0.04);
+    inset 0 1px 1px rgba(255, 255, 255, 0.32),
+    0 8px 28px -4px rgba(3, 189, 227, 0.45),
+    0 3px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1.5px);
 }
 
 /* ============================
@@ -228,8 +257,8 @@
    ============================ */
 
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {

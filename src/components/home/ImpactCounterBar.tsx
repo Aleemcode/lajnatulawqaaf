@@ -14,9 +14,9 @@ export const ImpactCounterBar: React.FC = () => {
         {/* Left Column (Span 4): Impact Badge & Facepile */}
         <div className="lg:col-span-4 p-8 sm:p-10 border-b lg:border-b-0 lg:border-r border-brand-royal/10 flex flex-col justify-between space-y-6">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-mist border border-slate-200/80 text-brand-royal text-xs font-cairo font-bold mb-4 shadow-sm">
+            <div className="badge-pill bg-brand-mist border border-slate-200/80 text-brand-royal mb-4 shadow-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-sky animate-pulse" />
-              <span>Impact Reach</span>
+              <span>COMMUNITY REACH</span>
             </div>
             {/* Avatar Stack + 10k+ Count */}
             <div className="flex items-center gap-3">
@@ -31,21 +31,21 @@ export const ImpactCounterBar: React.FC = () => {
                   </div>
                 ))}
               </div>
-              <div className="text-sm font-bold font-cairo text-brand-navy">10k+ Donors</div>
+              <div className="text-sm font-bold font-cairo text-brand-navy">10,000+ Donors & Beneficiaries</div>
             </div>
           </div>
 
-          <p className="text-slate-500 text-xs leading-relaxed max-w-xs">
-            Trusted by individual donors, family trusts, and institutional partners across Nigeria and the diaspora.
+          <p className="text-slate-500 text-xs leading-relaxed max-w-xs font-sans">
+            Trusted by individual philanthropists, family offices, and institutional endowment partners across Nigeria and the diaspora.
           </p>
         </div>
 
-        {/* Right Column (Span 8): Bold Statement & Glass CTA */}
+        {/* Right Column (Span 8): Bold Impact Statement & Glass CTA */}
         <div className="lg:col-span-8 p-8 sm:p-12 flex flex-col justify-between space-y-8">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-cairo text-slate-400 font-normal leading-snug">
-            <span className="font-bold text-brand-navy">170,000+ lives empowered</span> and{' '}
-            <span className="font-bold text-brand-navy">₦4.8B+ in permanent endowments</span> established —{' '}
-            <span className="text-brand-navy font-bold">and you know what? We’re just getting started.</span>
+            <span className="font-extrabold text-brand-navy">320,000+ lives empowered</span> and{' '}
+            <span className="font-extrabold text-brand-navy">₦4.8B+ in permanent endowments</span> established —{' '}
+            <span className="text-brand-navy font-extrabold">and we’re only just getting started.</span>
           </h2>
 
           <div className="pt-2 flex items-center">

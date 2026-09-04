@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { GlassButton } from '@/components/common/GlassButton';
 import { PledgeModal } from '@/components/common/PledgeModal';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Quote } from 'lucide-react';
 
 export const TestimonialSection: React.FC = () => {
   const [pledgeOpen, setPledgeOpen] = useState(false);
@@ -15,12 +15,15 @@ export const TestimonialSection: React.FC = () => {
         {/* Left Column (Span 4): Intro & CTA */}
         <div className="lg:col-span-4 p-8 sm:p-12 border-b lg:border-b-0 lg:border-r border-brand-royal/10 flex flex-col justify-between space-y-6">
           <div className="space-y-4">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-mist border border-slate-200/80 text-brand-royal text-xs font-cairo font-bold shadow-sm">
-              <span>Testimonials</span>
+            <div className="badge-pill bg-brand-mist border border-slate-200/80 text-brand-royal shadow-sm">
+              <span>COMMUNITY VOICES</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold font-cairo text-brand-navy leading-snug">
-              Hear from those who’ve seen the impact.
+            <h2 className="text-2xl sm:text-3xl font-extrabold font-cairo text-brand-navy leading-snug">
+              Hear from those who experience the impact.
             </h2>
+            <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-sans">
+              From community leaders to donor families, discover how structured Waqf transforms lives across Nigeria.
+            </p>
           </div>
 
           <div>
@@ -30,29 +33,29 @@ export const TestimonialSection: React.FC = () => {
               size="md"
               direction="right"
             >
-              Establish Waqf
+              Establish Waqf Today
             </GlassButton>
           </div>
         </div>
 
-        {/* Right Column (Span 8): Quote, Attribution, Avatar Stack, Arrow */}
+        {/* Right Column (Span 8): Editorial Quote & Attribution */}
         <div className="lg:col-span-8 p-8 sm:p-14 flex flex-col justify-between space-y-8 bg-brand-mist/30">
           <div className="space-y-4">
-            <div className="text-4xl sm:text-5xl font-serif text-brand-sky font-bold leading-none">
+            <div className="text-5xl font-serif text-brand-sky font-extrabold leading-none select-none">
               “
             </div>
-            <p className="text-xl sm:text-2xl lg:text-3xl font-cairo font-medium text-slate-700 leading-relaxed">
-              They work with unwavering <span className="text-brand-navy font-bold">respect, amanah, and consistency.</span> The endowment yields reach the right vulnerable families, without delays.
+            <p className="text-xl sm:text-2xl lg:text-3xl font-cairo font-semibold text-slate-700 leading-relaxed">
+              They operate with uncompromising <span className="text-brand-navy font-extrabold">Amanah, precision, and consistency.</span> The endowment yields reach our community's water networks without delay or friction.
             </p>
           </div>
 
           <div className="pt-6 border-t border-slate-200/60 flex items-center justify-between">
             <div>
-              <div className="text-xs font-cairo font-bold text-brand-navy">Alhaji Muhammad Bello</div>
-              <div className="text-[11px] text-slate-500 font-cairo">Regional Community Partner · Kano Hub</div>
+              <div className="text-sm font-cairo font-bold text-brand-navy">Alhaji Muhammad Bello</div>
+              <div className="text-xs text-slate-500 font-cairo">Regional Community Director · Kano Clean Water Hub</div>
             </div>
 
-            {/* Avatar Stack + Forward Arrow Disc in Royal Blue */}
+            {/* Avatar Stack + Forward Arrow Disc */}
             <div className="flex items-center gap-3">
               <div className="flex -space-x-2 overflow-hidden">
                 {[
@@ -71,7 +74,7 @@ export const TestimonialSection: React.FC = () => {
                 className="w-10 h-10 rounded-full bg-brand-royal text-white flex items-center justify-center shadow-md hover:bg-brand-sky hover:text-brand-navy transition-all hover:scale-105"
                 title="Pledge Support"
               >
-                <ArrowRight size={18} />
+                <ArrowRight size={16} />
               </button>
             </div>
           </div>

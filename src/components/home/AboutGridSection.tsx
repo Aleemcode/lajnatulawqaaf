@@ -9,19 +9,19 @@ export const AboutGridSection: React.FC = () => {
   return (
     <section className="border-b border-brand-royal/10 bg-brand-mist relative overflow-hidden">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12">
-        {/* Left Column (Span 7): Video/Image Spotlight & Partner Logos */}
+        {/* Left Column (Span 7): Spotlight Media & Partner Strip */}
         <div className="lg:col-span-7 p-8 sm:p-12 border-b lg:border-b-0 lg:border-r border-brand-royal/10 space-y-8 flex flex-col justify-between">
           <div className="space-y-4">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200/80 text-brand-royal text-xs font-cairo font-bold shadow-sm">
-              <span>About us</span>
+            <div className="badge-pill bg-white border border-slate-200/80 text-brand-royal shadow-sm">
+              <span>ABOUT THE INSTITUTION</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-cairo text-slate-400 leading-snug">
-              We help communities build permanent, self-sustaining{' '}
-              <span className="text-brand-navy">water infrastructure, education, and healthcare.</span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-cairo text-slate-400 leading-snug">
+              Reviving the Prophetic institution of perpetual Waqf to build{' '}
+              <span className="text-brand-navy">lasting infrastructure, education, and healthcare.</span>
             </h2>
           </div>
 
-          {/* Large Video / Image Card with Center Play Button */}
+          {/* Large Video Spotlight with Frosted Glass Play Button */}
           <div className="relative h-64 sm:h-72 rounded-3xl overflow-hidden shadow-clay group cursor-pointer border border-brand-royal/10">
             <Image
               src="https://images.unsplash.com/photo-1609234656388-0ff363383899?w=1000&q=80"
@@ -37,12 +37,12 @@ export const AboutGridSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Partner Strip Underneath */}
+          {/* Institutional Partner Recognition Strip */}
           <div className="pt-2 border-t border-slate-200/60 flex items-center justify-between gap-4 text-xs font-cairo font-bold text-slate-400 uppercase tracking-wider">
             <span>Jaiz Bank</span>
             <span>Lotus Bank</span>
-            <span>AAOIFI</span>
-            <span>SCIA</span>
+            <span>AAOIFI Standards</span>
+            <span>SCIA Recognised</span>
           </div>
         </div>
 
@@ -50,28 +50,28 @@ export const AboutGridSection: React.FC = () => {
         <div className="lg:col-span-5 p-8 sm:p-12 space-y-6 flex flex-col justify-between bg-white/40">
           <div className="space-y-5">
             {/* Frosted Card 1 */}
-            <div className="bg-white/80 backdrop-blur-md rounded-3xl p-6 border border-brand-royal/10 shadow-sm space-y-3">
+            <div className="surface-card rounded-3xl p-6 space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-brand-sky-soft text-brand-royal flex items-center justify-center">
-                  <HeartHandshake size={16} />
+                <div className="w-9 h-9 rounded-2xl bg-brand-sky-soft text-brand-royal flex items-center justify-center shadow-sm">
+                  <HeartHandshake size={18} />
                 </div>
-                <h3 className="font-cairo font-bold text-base text-brand-navy">Direct Impact</h3>
+                <h3 className="font-cairo font-bold text-base text-brand-navy">Direct Social Yield</h3>
               </div>
-              <p className="text-slate-600 text-xs leading-relaxed">
-                We distribute 85% of net commercial rental, solar power, and agricultural yields directly to verified local community programs and families.
+              <p className="text-slate-600 text-xs leading-relaxed font-sans">
+                We distribute 85% of net commercial rental, solar power, and agricultural yields directly to verified local community programs and families in need.
               </p>
             </div>
 
             {/* Frosted Card 2 */}
-            <div className="bg-white/80 backdrop-blur-md rounded-3xl p-6 border border-brand-royal/10 shadow-sm space-y-3">
+            <div className="surface-card rounded-3xl p-6 space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-brand-gold-soft text-brand-gold flex items-center justify-center">
-                  <ShieldCheck size={16} />
+                <div className="w-9 h-9 rounded-2xl bg-brand-gold-soft text-brand-gold flex items-center justify-center shadow-sm">
+                  <ShieldCheck size={18} />
                 </div>
-                <h3 className="font-cairo font-bold text-base text-brand-navy">Full Transparency</h3>
+                <h3 className="font-cairo font-bold text-base text-brand-navy">Complete Transparency</h3>
               </div>
-              <p className="text-slate-600 text-xs leading-relaxed">
-                We share annual unredacted audited financial statements and Shariah compliance fatwas so you can verify the continuous yields your endowment generates.
+              <p className="text-slate-600 text-xs leading-relaxed font-sans">
+                We publish unredacted audited financial statements and Shariah compliance fatwas annually, giving every donor verified proof of eternal impact.
               </p>
             </div>
           </div>
