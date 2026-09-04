@@ -1,0 +1,15 @@
+import type { MetadataRoute } from 'next';
+
+// Keep in sync with SITE_URL in src/app/layout.tsx.
+const SITE_URL = 'https://lajnatulawqaaf.org';
+
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: {
+      userAgent: '*',
+      allow: '/',
+    },
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
+  };
+}
