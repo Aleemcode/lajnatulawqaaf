@@ -17,44 +17,48 @@ function cn(...inputs: ClassValue[]) {
 
 const PILLARS = [
   {
+    number: '01',
     title: 'Amanah',
-    subtitle: 'Fiduciary Trust',
-    description: 'We hold and manage Waqf assets as a sacred trust, strictly adhering to the highest standards of Islamic fiduciary duty.',
+    arabic: 'الأمانة',
+    subtitle: 'Sacred Fiduciary Trust',
+    description: 'We hold and manage Waqf assets as an inviolable covenant, strictly adhering to the highest standards of Islamic fiduciary duty and asset preservation.',
+    guarantee: '100% Capital Preserved · Zero Dilution',
     icon: Shield,
-    color: 'bg-brand-royal',
-    textColor: 'text-white',
-    iconColor: 'text-brand-sky',
-    accent: 'bg-brand-sky'
+    accentColor: 'text-brand-royal',
+    bgAccent: 'bg-brand-royal/5',
   },
   {
+    number: '02',
     title: 'Ihsan',
-    subtitle: 'Excellence in Action',
-    description: 'Maximizing the social and spiritual impact of every endowment through rigorous management and strategic allocation.',
+    arabic: 'الإحسان',
+    subtitle: 'Excellence in Execution',
+    description: 'Maximizing the social and spiritual yield of every endowment through professional commercial management, ethical underwriting, and prompt distribution.',
+    guarantee: '85% Direct Annual Social Yield',
     icon: Users,
-    color: 'bg-brand-mist',
-    textColor: 'text-brand-navy',
-    iconColor: 'text-brand-royal',
-    accent: 'bg-brand-royal'
+    accentColor: 'text-brand-sky',
+    bgAccent: 'bg-brand-sky-soft',
   },
   {
+    number: '03',
     title: 'Istidama',
-    subtitle: 'Perpetual Sustainability',
-    description: 'Ensuring long-term preservation and growth of principal assets to generate continuous impact for generations.',
+    arabic: 'الاستدامة',
+    subtitle: 'Perpetual Longevity',
+    description: 'Structuring capital exclusively into durable, revenue-generating real estate and clean solar infrastructure to generate continuous benefit for generations.',
+    guarantee: 'Multi-Generational Asset Backing',
     icon: Scale,
-    color: 'bg-brand-mist',
-    textColor: 'text-brand-navy',
-    iconColor: 'text-brand-royal',
-    accent: 'bg-brand-royal'
+    accentColor: 'text-brand-gold',
+    bgAccent: 'bg-brand-gold-soft',
   },
   {
+    number: '04',
     title: 'Shaffafiyyah',
-    subtitle: 'Absolute Transparency',
-    description: 'Radical openness in our operations, financial reporting, and impact measurement for all stakeholders.',
+    arabic: 'الشفافية',
+    subtitle: 'Radical Transparency',
+    description: 'Complete institutional openness through unredacted annual financial audits by certified chartered accountants and independent Shariah board fatwas.',
+    guarantee: 'Quarterly Audits & Public Disclosures',
     icon: Eye,
-    color: 'bg-brand-navy',
-    textColor: 'text-white',
-    iconColor: 'text-brand-gold',
-    accent: 'bg-brand-gold'
+    accentColor: 'text-brand-royal',
+    bgAccent: 'bg-brand-royal/5',
   }
 ];
 
@@ -203,39 +207,66 @@ export default function AboutPage() {
 
           {/* Section 2: The 4 Pillars of Integrity */}
           <section className="py-16 border-b border-brand-royal/10">
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <IslamicEmblem className="w-12 h-12 mx-auto text-brand-gold opacity-50 mb-4" />
-              <h2 className="text-3xl md:text-4xl font-bold font-cairo mb-4">The Four Pillars of Integrity</h2>
-              <p className="text-slate-600 font-sans text-sm">The foundational principles that govern every decision, investment, and charitable allocation at Lajanah.</p>
+            <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
+              <div className="badge-pill bg-white border border-slate-200/80 text-brand-royal shadow-sm">
+                <span>ETHICAL FOUNDATION</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-extrabold font-cairo text-brand-navy">
+                The Four Pillars of Integrity
+              </h2>
+              <p className="text-slate-600 font-sans text-xs sm:text-sm leading-relaxed">
+                The core Shariah and fiduciary covenants governing every investment, asset acquisition, and charitable yield distribution at Lajnatul Awqaaf.
+              </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
-              {PILLARS.map((pillar, idx) => {
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {PILLARS.map((pillar) => {
                 const Icon = pillar.icon;
                 return (
-                  <div key={pillar.title} className={cn("p-8 rounded-3xl relative overflow-hidden group transition-all duration-300 hover:-translate-y-1 shadow-clay border", pillar.color, pillar.textColor, pillar.textColor === 'text-white' ? 'border-white/10' : 'border-brand-royal/10')}>
-                    <div className="absolute -right-12 -top-12 w-40 h-40 opacity-10 pointer-events-none transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12">
-                       <Icon className="w-full h-full" />
-                    </div>
-                    
-                    <div className="flex items-start justify-between mb-8 relative z-10">
-                      <div className={cn("w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-sm", "bg-white/10 backdrop-blur-sm")}>
-                        <Icon className={cn("w-7 h-7", pillar.iconColor)} />
+                  <div 
+                    key={pillar.title} 
+                    className="surface-card rounded-3xl p-7 sm:p-8 flex flex-col justify-between space-y-6 relative overflow-hidden group"
+                  >
+                    {/* Top Row: Icon Disc, Arabic Calligraphy, and Number Tag */}
+                    <div className="flex items-center justify-between relative z-10">
+                      <div className="flex items-center gap-3">
+                        <div className={cn("w-12 h-12 rounded-2xl flex items-center justify-center shadow-sm transition-colors duration-300", pillar.bgAccent, pillar.accentColor)}>
+                          <Icon size={22} />
+                        </div>
+                        <span className="text-sm font-cairo font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">
+                          {pillar.arabic}
+                        </span>
                       </div>
-                      <span className="text-6xl font-bold font-cairo opacity-10">0{idx + 1}</span>
+                      <span className="font-mono text-xs font-bold text-slate-400 bg-slate-100 px-2.5 py-1 rounded-lg">
+                        {pillar.number}
+                      </span>
                     </div>
-                    
-                    <div className="relative z-10">
-                      <h3 className="text-2xl font-bold font-cairo mb-1 flex items-center">
-                        {pillar.title}
-                        <div className={cn("w-2 h-2 rounded-full ml-3", pillar.accent)} />
-                      </h3>
-                      <p className={cn("text-xs uppercase tracking-wider mb-4 font-cairo font-bold", pillar.textColor === 'text-white' ? 'text-white/70' : 'text-brand-royal')}>
+
+                    {/* Middle: Titles & Description */}
+                    <div className="space-y-2 relative z-10">
+                      <div className="flex items-center gap-2">
+                        <h3 className="text-2xl font-extrabold font-cairo text-brand-navy">
+                          {pillar.title}
+                        </h3>
+                        <span className="w-1.5 h-1.5 rounded-full bg-brand-sky" />
+                      </div>
+                      <p className="text-xs uppercase tracking-wider font-cairo font-bold text-brand-royal">
                         {pillar.subtitle}
                       </p>
-                      <p className={cn("text-sm leading-relaxed font-sans", pillar.textColor === 'text-white' ? 'text-white/90' : 'text-slate-700')}>
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-sans pt-1">
                         {pillar.description}
                       </p>
+                    </div>
+
+                    {/* Bottom: Institutional Guarantee Pill */}
+                    <div className="pt-4 border-t border-slate-100 relative z-10 flex items-center justify-between">
+                      <div className="flex items-center gap-2 text-xs font-cairo font-bold text-brand-navy">
+                        <ShieldCheck size={15} className="text-brand-sky flex-shrink-0" />
+                        <span>{pillar.guarantee}</span>
+                      </div>
+                      <span className="text-brand-royal font-bold text-xs opacity-0 group-hover:opacity-100 transition-opacity">
+                        ✓
+                      </span>
                     </div>
                   </div>
                 );
